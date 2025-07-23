@@ -1,0 +1,248 @@
+[
+    {
+        "title": "BROWSER EXTENSION MANAGER UI",
+        "image": "./assets/images/thumbnail-project-1-large-1.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/browser-extensions-manager-ui/",
+        "codeUrl": "https://github.com/VagTsop/browser-extensions-manager-ui"
+    },
+    {
+        "title": "MILLENIA BANK WEB APPLICATION",
+        "image": "./assets/images/thumbnail-project-2-large.webp",
+        "tech": [
+            "ANGULAR",
+            "SCSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/product-app/",
+        "codeUrl": "https://github.com/VagTsop/product-app"
+    },
+    {
+        "title": "HUDDLE LANDING PAGE",
+        "image": "./assets/images/thumbnail-project-3-large.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/Huddle-landing-page-with-a-single-introductory-section/huddle-landing-page-with-single-introductory-section-main/",
+        "codeUrl": "https://github.com/VagTsop/Huddle-landing-page-with-a-single-introductory-section"
+    },
+    {
+        "title": "PING COMING SOON PAGE",
+        "image": "./assets/images/thumbnail-project-4-large.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/ping-coming-soon-page/ping-coming-soon-page-main/",
+        "codeUrl": "https://github.com/VagTsop/ping-coming-soon-page/tree/master/ping-coming-soon-page-main"
+    },
+    {
+        "title": "SINGLE PRICE GRID COMPONENT",
+        "image": "./assets/images/thumbnail-project-5-large.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/single-price-grid-component/single-price-grid-component/",
+        "codeUrl": "https://github.com/VagTsop/single-price-grid-component/tree/master/single-price-grid-component"
+    },
+    {
+        "title": "SIGN UP FORM",
+        "image": "./assets/images/thumbnail-project-6-large.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/sign-up-form/sign-up-form-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/sign-up-form/tree/master/sign-up-form-main"
+    },
+    {
+        "title": "BASE APPAREL COMING SOON",
+        "image": "./assets/images/thumbnail-project-7-large.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/base-apparel-coming-soon/",
+        "codeUrl": "https://github.com/VagTsop/base-apparel-coming-soon"
+    },
+    {
+        "title": "ARTICLE PREVIEW COMPONENT",
+        "image": "./assets/images/thumbnail-project-8-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/base-apparel-coming-soon/",
+        "codeUrl": "https://vagtsop.github.io/article-preview-component/article-preview-component-master/index.html"
+    },
+    {
+        "title": "SOCIAL PROOF SECTION",
+        "image": "./assets/images/thumbnail-project-9-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/social-proof-section/social-proof-section-master/index.html",
+        "codeUrl": "https://github.com/VagTsop/social-proof-section/tree/master/social-proof-section-master"
+    },
+    {
+        "title": "3 COLUMN PREVIEW CARD COMPONENT",
+        "image": "./assets/images/thumbnail-project-10-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/3-column-preview-card-component/",
+        "codeUrl": "https://github.com/VagTsop/3-column-preview-card-component"
+    },
+    {
+        "title": "STATS PREVIEW CARD COMPONENT",
+        "image": "./assets/images/thumbnail-project-11-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/stats-preview-card-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/stats-preview-card-component-main?tab=readme-ov-file"
+    },
+    {
+        "title": "ORDER SUMMARY COMPONENT",
+        "image": "./assets/images/thumbnail-project-12-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/order-summary-component/order-summary-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/order-summary-component/tree/master/order-summary-component-main"
+    },
+    {
+        "title": "NFT PREVIEW CARD COMPONENT",
+        "image": "./assets/images/thumbnail-project-13-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/nft-preview-card-component/nft-preview-card-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/nft-preview-card-component/tree/master/nft-preview-card-component-main"
+    },
+    {
+        "title": "INTERACTIVE RATING COMPONENT",
+        "image": "./assets/images/thumbnail-project-14-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/interactive-rating-component/interactive-rating-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/interactive-rating-component/tree/master/interactive-rating-component-main"
+    },
+    {
+        "title": "RESULTS SUMMARY COMPONENT",
+        "image": "./assets/images/thumbnail-project-15-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/results-summary-component/results-summary-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/results-summary-component/tree/master/results-summary-component-main"
+    },
+    {
+        "title": "FAQ ACCORDION CARD",
+        "image": "./assets/images/thumbnail-project-16-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/FAQ-accordion/faq-accordion-main/",
+        "codeUrl": "https://github.com/VagTsop/FAQ-accordion/tree/master/faq-accordion-main"
+    },
+    {
+        "title": "RECIPE PAGE",
+        "image": "./assets/images/thumbnail-project-17-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/recipe-page/recipe-page-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/recipe-page/tree/master/recipe-page-main"
+    },
+    {
+        "title": "TESTIMONIALS GRID SECTION",
+        "image": "./assets/images/thumbnail-project-18-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/testimonials-grid-section/testimonials-grid-section-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/testimonials-grid-section"
+    },
+    {
+        "title": "FOUR CARD FEATURE SECTION",
+        "image": "./assets/images/thumbnail-project-19-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://github.com/VagTsop/four-card-feature-section/tree/master/four-card-feature-section-master",
+        "codeUrl": "https://vagtsop.github.io/four-card-feature-section/four-card-feature-section-master/index.html"
+    },
+    {
+        "title": "PRODUCT PREVIEW",
+        "image": "./assets/images/thumbnail-project-20-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/product-preview/product-preview-card-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/product-preview/tree/master/product-preview-card-component-main"
+    },
+    {
+        "title": "SOCIAL LINKS PROFILE",
+        "image": "./assets/images/thumbnail-project-21-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/social-links-profile/social-links-profile-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/social-links-profile/tree/master/social-links-profile-main"
+    },
+    {
+        "title": "BLOG PREVIEW CARD COMPONENT",
+        "image": "./assets/images/thumbnail-project-22-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/blog-preview-card/blog-preview-card-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/blog-preview-card/tree/master/blog-preview-card-main"
+    },
+    {
+        "title": "PROFILE CARD COMPONENT",
+        "image": "./assets/images/thumbnail-project-23-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/profile-card-component/profile-card-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/profile-card-component/tree/master/profile-card-component-main"
+    },
+    {
+        "title": "QR CODE COMPONENT",
+        "image": "./assets/images/thumbnail-project-24-large.webp",
+        "tech": [
+            "HTML",
+            "CSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/qr-code-component/qr-code-component-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/qr-code-component/tree/master/qr-code-component-main"
+    }
+]
