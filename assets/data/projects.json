@@ -82,8 +82,8 @@
             "HTML",
             "CSS"
         ],
-        "liveUrl": "https://vagtsop.github.io/base-apparel-coming-soon/",
-        "codeUrl": "https://vagtsop.github.io/article-preview-component/article-preview-component-master/index.html"
+        "liveUrl": "https://vagtsop.github.io/article-preview-component/article-preview-component-master/index.html",
+        "codeUrl": "https://github.com/VagTsop/article-preview-component/tree/master/article-preview-component-master"
     },
     {
         "title": "SOCIAL PROOF SECTION",
@@ -183,7 +183,7 @@
             "CSS"
         ],
         "liveUrl": "https://vagtsop.github.io/testimonials-grid-section/testimonials-grid-section-main/index.html",
-        "codeUrl": "https://github.com/VagTsop/testimonials-grid-section"
+        "codeUrl": "https://github.com/VagTsop/testimonials-grid-section/tree/master/testimonials-grid-section-main"
     },
     {
         "title": "FOUR CARD FEATURE SECTION",
