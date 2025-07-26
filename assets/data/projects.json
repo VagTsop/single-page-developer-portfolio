@@ -11,6 +11,17 @@
         "codeUrl": "https://github.com/VagTsop/browser-extensions-manager-ui"
     },
     {
+        "title": "ADMIN DASHBOARD UI",
+        "image": "./assets/images/thumbnail-project-1-large-2.webp",
+        "tech": [
+            "ANGULAR",
+            "MATERIAL",
+            "SCSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/admin-dashboard/",
+        "codeUrl": "https://github.com/VagTsop/admin-dashboard"
+    },
+    {
         "title": "MILLENIA BANK WEB APPLICATION",
         "image": "./assets/images/thumbnail-project-2-large.webp",
         "tech": [
