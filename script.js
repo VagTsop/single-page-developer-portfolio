@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
           .join("");
 
         const projectHTML = `
-          <div class="single-project">
+          <div class="single-project hidden">
             <div class="img-div">
-              <img src="${project.image}" alt="${project.title}" />
+              <img src="${project.image}" alt="${project.title}" loading="lazy" />
               <div class="overlay-project">
                 <a href="${project.liveUrl}" target="_blank">
                   <button type="button" class="custom-btn">View project</button>
@@ -29,9 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         container.insertAdjacentHTML("beforeend", projectHTML);
       });
+
+      animateOnScroll(); // 🔥 Call animation logic after all projects are added
     })
     .catch((error) => {
       console.error("Error loading project data:", error);
       container.innerHTML = "<p>Failed to load projects.</p>";
     });
+
+  function animateOnScroll() {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+            entry.target.classList.remove("hidden");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    document
+      .querySelectorAll(".single-project")
+      .forEach((el) => observer.observe(el));
+  }
 });

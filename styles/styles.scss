@@ -1,10 +1,10 @@
 :root {
   --black: #151515;
-  --green: #4EE1A0;
+  --green: #4ee1a0;
   --off-black: #242424;
   --gray: #d9d9d9;
-  --white: #FFFFFF;
-  --red: #FF6F5B;
+  --white: #ffffff;
+  --red: #ff6f5b;
 }
 
 * {
@@ -96,7 +96,15 @@
   }
 }
 
-p, button, h1, h2, h3, svg, span, input, textarea {
+p,
+button,
+h1,
+h2,
+h3,
+svg,
+span,
+input,
+textarea {
   color: var(--white);
 }
 
@@ -111,7 +119,7 @@ html {
 
 body {
   background-color: var(--black);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .adamkeyes {
@@ -121,7 +129,7 @@ body {
   .icons {
     display: flex;
     gap: 2rem;
-  
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -146,21 +154,20 @@ body {
   }
 }
 
-
 header {
   position: relative;
   margin-top: 2.5rem;
   padding: 0 2rem;
   max-width: calc(1110px + 4rem);
   margin: 0 auto;
-  
+
   .icons {
     margin-right: 1.85rem;
   }
 
   .profile-image {
     position: absolute;
-    background-image: url('../assets/images/image-profile-desktop.webp');
+    background-image: url("../assets/images/image-profile-desktop.webp");
     background-repeat: no-repeat;
     background-size: contain;
     top: -2.5rem;
@@ -194,7 +201,7 @@ header {
     .break-line-1 {
       display: none;
     }
-  
+
     .break-line-3 {
       display: none;
     }
@@ -210,18 +217,18 @@ header {
       .break-line-1 {
         display: inline;
       }
-  
+
       .break-line-2 {
         display: none;
       }
-  
+
       .break-line-3 {
         display: inline;
       }
     }
 
     .profile-image {
-      background-image: url('../assets/images/image-profile-tablet.webp');
+      background-image: url("../assets/images/image-profile-tablet.webp");
       max-width: 21rem;
     }
     .icons {
@@ -249,25 +256,25 @@ header {
       .break-line-1 {
         display: none;
       }
-  
+
       .break-line-2 {
         display: none;
       }
-  
+
       .break-line-3 {
         display: inline;
       }
     }
 
     .profile-image {
-      background-image: url('../assets/images/image-profile-mobile.webp');
+      background-image: url("../assets/images/image-profile-mobile.webp");
       width: 10.875rem;
       height: 23.9rem;
       left: 0;
       right: 0;
       top: -1.25rem;
       margin: 0 auto;
-      z-index: 1
+      z-index: 1;
     }
 
     .img-rings {
@@ -326,7 +333,7 @@ main {
     }
 
     @media (max-width: 425px) {
-      margin:2.5rem 0;
+      margin: 2.5rem 0;
     }
   }
 
@@ -383,7 +390,7 @@ main {
 
         &:hover {
           cursor: pointer;
-          .overlay-project{
+          .overlay-project {
             visibility: visible;
           }
         }
@@ -393,7 +400,7 @@ main {
         grid-row-gap: 3.75rem;
         justify-items: center;
 
-        .single-project{
+        .single-project {
           .img-div {
             img {
               width: 21rem;
@@ -409,7 +416,7 @@ main {
       }
 
       @media (max-width: 375px) {
-        .single-project{
+        .single-project {
           .img-div {
             img {
               max-width: 90vw;
@@ -418,9 +425,7 @@ main {
           }
         }
       }
-
     }
-
   }
 
   @media (max-width: 768px) {
@@ -437,9 +442,9 @@ main {
 }
 
 footer {
-  padding:5.25rem 0 5.75rem;
+  padding: 5.25rem 0 5.75rem;
   background-color: var(--off-black);
-  
+
   .footer-content {
     padding: 0 2rem;
     max-width: calc(1110px + 4rem);
@@ -466,7 +471,7 @@ footer {
       flex-direction: column;
       align-items: flex-end;
       gap: 2rem;
-      
+
       .input-box {
         width: 100%;
         display: flex;
@@ -483,12 +488,14 @@ footer {
         border-color: var(--green);
       }
 
-      input, textarea {
+      input,
+      textarea {
         background-color: transparent;
         border: 0;
       }
 
-      input:focus, textarea:focus {
+      input:focus,
+      textarea:focus {
         outline: none;
       }
 
@@ -525,6 +532,21 @@ footer {
   }
 
   @media (max-width: 425px) {
-    padding:2.5rem 0;
+    padding: 2.5rem 0;
+  }
+}
+
+.single-project {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.hidden {
+    visibility: hidden;
   }
 }
