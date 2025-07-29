@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.insertAdjacentHTML("beforeend", projectHTML);
       });
 
-      animateOnScroll(); // 🔥 Call animation logic after all projects are added
+      animateOnScroll(); // Call animation logic after all projects are added
     })
     .catch((error) => {
       console.error("Error loading project data:", error);
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   function animateOnScroll() {
-    const observer = new IntersectionObserver(
+    const projectObserver = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -55,6 +55,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document
       .querySelectorAll(".single-project")
-      .forEach((el) => observer.observe(el));
+      .forEach((el) => projectObserver.observe(el));
+  }
+
+  // --- Experience Years Counter Animation ---
+  const abilitiesSection = document.querySelector(".abilities");
+  let hasAnimated = false; // Flag to ensure animation runs only once
+
+  const counterObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          const counters = document.querySelectorAll(".experience-counter");
+          counters.forEach((counter) => {
+            const target = +counter.dataset.target;
+            let current = 0;
+            const duration = 500; // Changed from 1500 to 500 milliseconds for faster animation
+            const increment = target / (duration / 10); // Adjust 10 for smoother animation
+
+            const updateCounter = () => {
+              if (current < target) {
+                current = Math.min(current + increment, target);
+                counter.textContent = Math.ceil(current);
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = target; // Ensure it ends exactly on the target
+              }
+            };
+            requestAnimationFrame(updateCounter);
+          });
+          hasAnimated = true; // Set flag to true after animation starts
+          observer.unobserve(entry.target); // Stop observing after animation
+        }
+      });
+    },
+    {
+      threshold: 0.5, // Trigger when 50% of the section is visible
+    }
+  );
+
+  if (abilitiesSection) {
+    counterObserver.observe(abilitiesSection);
   }
 });

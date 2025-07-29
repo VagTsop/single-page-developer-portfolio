@@ -550,3 +550,37 @@ footer {
     visibility: hidden;
   }
 }
+
+/* ... (your existing CSS before the NEW ANIMATION FOR IMAGES/CIRCLES section) ... */
+
+/* NEW ANIMATION FOR IMAGES/CIRCLES */
+
+/* Renamed from fadeInScale to fadeInSlide to reflect the new animation */
+@keyframes fadeInSlideLeft {
+  /* Changed keyframe name for clarity */
+  from {
+    opacity: 0;
+    transform: translateX(-100px); /* Start 100px to the left */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* End at its original position */
+  }
+}
+
+.initial-fade-in {
+  opacity: 0; /* Hidden by default */
+  /* Updated to use fadeInSlideLeft */
+  animation: fadeInSlideLeft 0.8s ease-out forwards; /* Animation properties */
+}
+
+/* Adjust delays for each image if you want them to appear separately */
+.profile-image.initial-fade-in {
+  animation-delay: 0.5s; /* Start after hero text or simultaneously */
+}
+
+.img-rings.initial-fade-in {
+  animation-delay: 0.8s; /* Start slightly after the profile image */
+}
+
+/* ... (rest of your existing CSS, including the header block with position/z-index) ... */
