@@ -32,6 +32,17 @@
         "codeUrl": "https://github.com/VagTsop/product-app"
     },
     {
+        "title": "HOTEL SEARCH SAMPLE",
+        "image": "./assets/images/thumbnail-project-1-large-3.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://quirky-franklin-54cb91.netlify.app/",
+        "codeUrl": "https://github.com/VagTsop/trivago-hotel-search-sample"
+    },
+    {
         "title": "HUDDLE LANDING PAGE",
         "image": "./assets/images/thumbnail-project-3-large.webp",
         "tech": [
