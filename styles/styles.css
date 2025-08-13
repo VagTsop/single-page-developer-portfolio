@@ -184,11 +184,6 @@ header .img-rings {
   top: 5.56rem;
   left: -16.56rem;
 }
-header .img-circle {
-  position: absolute;
-  top: 29.7rem;
-  right: 23.75rem;
-}
 header h1 {
   margin-top: 8rem;
   margin-bottom: 2.7rem;
@@ -227,10 +222,6 @@ header p {
     top: 3.25rem;
     left: -50%;
   }
-  header .img-circle {
-    top: 29.4rem;
-    right: -3.9rem;
-  }
 }
 @media (max-width: 425px) {
   header {
@@ -264,9 +255,6 @@ header p {
     left: -23rem;
     top: 7.7rem;
     z-index: -1;
-  }
-  header .img-circle {
-    display: none;
   }
 }
 
@@ -499,33 +487,25 @@ footer hr {
   visibility: hidden;
 }
 
-/* ... (your existing CSS before the NEW ANIMATION FOR IMAGES/CIRCLES section) ... */
-/* NEW ANIMATION FOR IMAGES/CIRCLES */
-/* Renamed from fadeInScale to fadeInSlide to reflect the new animation */
 @keyframes fadeInSlideLeft {
-  /* Changed keyframe name for clarity */
   from {
     opacity: 0;
-    transform: translateX(-100px); /* Start 100px to the left */
+    transform: translateX(-100px);
   }
   to {
     opacity: 1;
-    transform: translateX(0); /* End at its original position */
+    transform: translateX(0);
   }
 }
 .initial-fade-in {
-  opacity: 0; /* Hidden by default */
-  /* Updated to use fadeInSlideLeft */
-  animation: fadeInSlideLeft 0.8s ease-out forwards; /* Animation properties */
+  opacity: 0;
+  animation: fadeInSlideLeft 0.8s ease-out forwards;
 }
 
-/* Adjust delays for each image if you want them to appear separately */
 .profile-image.initial-fade-in {
-  animation-delay: 0.5s; /* Start after hero text or simultaneously */
+  animation-delay: 0.5s;
 }
 
 .img-rings.initial-fade-in {
-  animation-delay: 0.8s; /* Start slightly after the profile image */
-}
-
-/* ... (rest of your existing CSS, including the header block with position/z-index) ... *//*# sourceMappingURL=styles.css.map */
+  animation-delay: 0.8s;
+}/*# sourceMappingURL=styles.css.map */
