@@ -125,11 +125,10 @@ body {
 .adamkeyes {
   display: flex;
   justify-content: space-between;
-
+  padding-top: 20px;
   .icons {
     display: flex;
     gap: 2rem;
-
     svg {
       width: 1.5rem;
       height: 1.5rem;
