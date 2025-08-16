@@ -340,6 +340,8 @@ main {
       .single-project {
         .img-div {
           position: relative;
+          overflow: hidden;
+
           img {
             width: 34rem;
             height: 25rem;
@@ -355,28 +357,52 @@ main {
           gap: 1.125rem;
         }
 
+        /* --- Smooth overlay appearance --- */
         .overlay-project {
           position: absolute;
-          background-color: rgba(0, 0, 0, 0.727);
-
-          top: 0;
-          right: 0;
-          left: 0;
-          bottom: 0;
-          visibility: hidden;
-
+          inset: 0;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          gap: 3rem;
+          gap: 1.5rem;
+          background-color: rgba(0, 0, 0, 0.6);
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity 0.35s ease, transform 0.35s ease;
+          pointer-events: none;
+          will-change: opacity, transform;
+
+          a {
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+          }
+        }
+
+        /* Hover + keyboard focus */
+        .img-div:hover .overlay-project,
+        .img-div:focus-within .overlay-project {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+
+        .img-div:hover .overlay-project a:nth-child(1),
+        .img-div:focus-within .overlay-project a:nth-child(1) {
+          transition-delay: 0.05s;
+          opacity: 1;
+          transform: none;
+        }
+        .img-div:hover .overlay-project a:nth-child(2),
+        .img-div:focus-within .overlay-project a:nth-child(2) {
+          transition-delay: 0.15s;
+          opacity: 1;
+          transform: none;
         }
 
         &:hover {
           cursor: pointer;
-          .overlay-project {
-            visibility: visible;
-          }
         }
       }
 
@@ -557,4 +583,13 @@ footer {
 
 .img-rings.initial-fade-in {
   animation-delay: 0.8s;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .overlay-project,
+  .overlay-project a {
+    transition: none !important;
+    transform: none !important;
+  }
 }

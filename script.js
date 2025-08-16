@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.insertAdjacentHTML("beforeend", projectHTML);
       });
 
-      animateOnScroll(); // Call animation logic after all projects are added
+      animateOnScroll();
     })
     .catch((error) => {
       console.error("Error loading project data:", error);
@@ -58,9 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
       .forEach((el) => projectObserver.observe(el));
   }
 
-  // --- Experience Years Counter Animation ---
   const abilitiesSection = document.querySelector(".abilities");
-  let hasAnimated = false; // Flag to ensure animation runs only once
+  let hasAnimated = false;
 
   const counterObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -70,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
           counters.forEach((counter) => {
             const target = +counter.dataset.target;
             let current = 0;
-            const duration = 500; // Changed from 1500 to 500 milliseconds for faster animation
-            const increment = target / (duration / 10); // Adjust 10 for smoother animation
+            const duration = 500;
+            const increment = target / (duration / 10);
 
             const updateCounter = () => {
               if (current < target) {
@@ -79,18 +78,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 counter.textContent = Math.ceil(current);
                 requestAnimationFrame(updateCounter);
               } else {
-                counter.textContent = target; // Ensure it ends exactly on the target
+                counter.textContent = target;
               }
             };
             requestAnimationFrame(updateCounter);
           });
-          hasAnimated = true; // Set flag to true after animation starts
-          observer.unobserve(entry.target); // Stop observing after animation
+          hasAnimated = true;
+          observer.unobserve(entry.target);
         }
       });
     },
     {
-      threshold: 0.5, // Trigger when 50% of the section is visible
+      threshold: 0.5,
     }
   );
 
