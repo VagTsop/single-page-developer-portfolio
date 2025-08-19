@@ -11,6 +11,17 @@
         "codeUrl": "https://github.com/VagTsop/browser-extensions-manager-ui"
     },
     {
+        "title": "CONFERENCE TICKET GENERATOR",
+        "image": "./assets/images/thumbnail-project-1-large-4.webp",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT"
+        ],
+        "liveUrl": "https://vagtsop.github.io/conference-ticket-generator/conference-ticket-generator-main/index.html",
+        "codeUrl": "https://github.com/VagTsop/conference-ticket-generator"
+    },
+    {
         "title": "ADMIN DASHBOARD UI",
         "image": "./assets/images/thumbnail-project-1-large-2.webp",
         "tech": [
