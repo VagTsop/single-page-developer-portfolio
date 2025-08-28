@@ -601,13 +601,13 @@ footer {
 }
 
 #projectsPager button {
-  min-width: 2rem;
+  min-width: 1rem;
   text-align: center;
   padding: 0.25rem 0.5rem;
 }
 
 #projectsPager button.active-page {
-  color: var(--green); /* text color */
-  border-color: var(--green); /* underline border color */
+  color: var(--green);
+  border-color: var(--green);
   font-weight: 700;
 }
