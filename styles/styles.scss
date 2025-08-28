@@ -593,3 +593,21 @@ footer {
     transform: none !important;
   }
 }
+#projectsPager {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+#projectsPager button {
+  min-width: 2rem;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+}
+
+#projectsPager button.active-page {
+  color: var(--green); /* text color */
+  border-color: var(--green); /* underline border color */
+  font-weight: 700;
+}
