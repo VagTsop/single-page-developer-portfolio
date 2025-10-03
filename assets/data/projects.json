@@ -1,5 +1,14 @@
 [
     {
+        "title": "WEATHER NOW - ANGULAR PWA",
+        "image": "./assets/images/thumbnail-project-1-large-0.webp",
+        "tech": [
+            "ANGULAR"
+        ],
+        "liveUrl": "https://vagtsop.github.io/weather-app/",
+        "codeUrl": "https://github.com/VagTsop/weather-app"
+    },
+    {
         "title": "BROWSER EXTENSION MANAGER UI",
         "image": "./assets/images/thumbnail-project-1-large-1.webp",
         "tech": [
