@@ -1,6 +1,6 @@
 # Vagelis Tsopanos - Developer Portfolio
 
-![Portfolio Preview](./preview.jpg)
+![Portfolio Preview](./assets/images/repo%20hero%20image.png)
 
 ## About
 
@@ -23,6 +23,8 @@ Personal portfolio website showcasing my work as a front-end developer and freel
 - HTML5
 - CSS3 / SCSS
 - Vanilla JavaScript
+- React
+- Electron
 - EmailJS
 - Google Analytics 4
 
