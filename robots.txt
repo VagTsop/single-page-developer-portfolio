@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vagtsop.github.io/single-page-developer-portfolio/sitemap.xml

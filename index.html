@@ -69,13 +69,25 @@
       }
     </script>
 
-    <!-- Google Analytics - Replace G-CF4KV1M2QS with your Measurement ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF4KV1M2QS"></script>
+    <!-- Google Analytics (loaded after cookie consent) -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CF4KV1M2QS');
+
+      function loadAnalytics() {
+        if (document.querySelector('script[src*="googletagmanager"]')) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CF4KV1M2QS';
+        document.head.appendChild(s);
+        gtag('js', new Date());
+        gtag('config', 'G-CF4KV1M2QS');
+      }
+
+      // Auto-load if user already consented
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        loadAnalytics();
+      }
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -169,6 +181,11 @@
         <a href="#projects">
           <button type="button" class="cta-btn secondary-btn">
             View My Work
+          </button>
+        </a>
+        <a href="./assets/Vagelis_Tsopanos_CV.pdf" download>
+          <button type="button" class="cta-btn secondary-btn">
+            Download CV
           </button>
         </a>
       </div>
@@ -487,6 +504,17 @@
         </div>
       </section>
     </footer>
+    <!-- GDPR Cookie Consent Banner -->
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+      <p>This site uses cookies (Google Analytics) to analyze traffic and improve your experience.
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+      </p>
+      <div class="cookie-actions">
+        <button id="cookieAccept" class="cta-btn primary-btn cookie-btn">Accept</button>
+        <button id="cookieDecline" class="cta-btn secondary-btn cookie-btn">Decline</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
       document
@@ -522,6 +550,28 @@
             }, 3000);
           }
         });
+    </script>
+    <script>
+      // Cookie Consent
+      (function() {
+        var banner = document.getElementById('cookieBanner');
+        var consent = localStorage.getItem('cookie-consent');
+
+        if (!consent) {
+          banner.classList.add('visible');
+        }
+
+        document.getElementById('cookieAccept').addEventListener('click', function() {
+          localStorage.setItem('cookie-consent', 'accepted');
+          banner.classList.remove('visible');
+          loadAnalytics();
+        });
+
+        document.getElementById('cookieDecline').addEventListener('click', function() {
+          localStorage.setItem('cookie-consent', 'declined');
+          banner.classList.remove('visible');
+        });
+      })();
     </script>
   </body>
 </html>
