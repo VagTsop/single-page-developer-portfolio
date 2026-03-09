@@ -1,4 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ---------- Reveal-on-scroll for sections ----------
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".reveal-section").forEach((el) => {
+    revealObserver.observe(el);
+  });
+
   // ---------- Projects: explicit pagination + lazy images ----------
   const container = document.getElementById("projectsContainer");
 
@@ -50,12 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
     const thumb = project.thumb || project.image;
     const sizes = "(max-width:736px) 90vw, 34rem";
+    const featuredClass = project.featured ? " featured-project" : "";
+    const featuredBadge = project.featured
+      ? '<span class="featured-badge">Featured</span>'
+      : "";
+    const description = project.description
+      ? `<p class="project-description">${project.description}</p>`
+      : "";
 
     container.insertAdjacentHTML(
       "beforeend",
       `
-      <div class="single-project hidden">
+      <div class="single-project hidden${featuredClass}">
         <div class="img-div">
+          ${featuredBadge}
           <img
             src="${thumb}"
             srcset="${thumb} 600w, ${project.image} 1200w"
@@ -73,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         <h3 class="heading-M">${project.title || "Untitled"}</h3>
+        ${description}
         <div class="tech-used">${techTags}</div>
       </div>
       `
@@ -85,20 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const b = document.createElement("button");
       b.textContent = label;
       b.className = "custom-btn";
-      if (isActive) b.classList.add("active-page"); // <-- add this
+      if (isActive) b.classList.add("active-page");
       b.style.opacity = disabled ? "0.5" : "1";
       b.disabled = disabled;
       b.addEventListener("click", onClick);
       return b;
     };
 
-    // « First, ‹ Prev
     pager.append(
       mkBtn("«", () => renderPage(1), currentPage === 1),
       mkBtn("‹", () => renderPage(currentPage - 1), currentPage === 1)
     );
 
-    // Numbered pages (compact)
     const nums = calcPageNumbers(currentPage, totalPages);
     nums.forEach((n) => {
       if (n === "...") {
@@ -114,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Next ›, Last »
     pager.append(
       mkBtn("›", () => renderPage(currentPage + 1), currentPage === totalPages),
       mkBtn("»", () => renderPage(totalPages), currentPage === totalPages)
@@ -122,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updatePagerState() {
-    // Rebuild to update disabled/active states
     renderPager();
   }
 
@@ -143,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return out;
   }
 
-  // ---------- Reveal-on-scroll animation (unchanged) ----------
+  // ---------- Reveal-on-scroll for project cards ----------
   function animateOnScroll() {
     const projectObserver = new IntersectionObserver(
       (entries, obs) => {
@@ -162,32 +184,17 @@ document.addEventListener("DOMContentLoaded", () => {
       .forEach((el) => projectObserver.observe(el));
   }
 
-  // ---------- Abilities counters (unchanged) ----------
+  // ---------- Abilities counters ----------
   const abilitiesSection = document.querySelector(".abilities");
-  let hasAnimated = false;
+  let hasAnimatedAbilities = false;
 
   const counterObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !hasAnimated) {
+        if (entry.isIntersecting && !hasAnimatedAbilities) {
           const counters = document.querySelectorAll(".experience-counter");
-          counters.forEach((counter) => {
-            const target = +counter.dataset.target || 0;
-            let current = 0;
-            const duration = 500;
-            const increment = target / (duration / 10);
-            const updateCounter = () => {
-              if (current < target) {
-                current = Math.min(current + increment, target);
-                counter.textContent = Math.ceil(current);
-                requestAnimationFrame(updateCounter);
-              } else {
-                counter.textContent = target;
-              }
-            };
-            requestAnimationFrame(updateCounter);
-          });
-          hasAnimated = true;
+          counters.forEach((counter) => animateCounter(counter));
+          hasAnimatedAbilities = true;
           observer.unobserve(entry.target);
         }
       });
@@ -196,4 +203,42 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   if (abilitiesSection) counterObserver.observe(abilitiesSection);
+
+  // ---------- About section highlight counters ----------
+  const aboutSection = document.querySelector(".about-section");
+  let hasAnimatedAbout = false;
+
+  const aboutObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimatedAbout) {
+          const counters = document.querySelectorAll(".highlight-number");
+          counters.forEach((counter) => animateCounter(counter));
+          hasAnimatedAbout = true;
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  if (aboutSection) aboutObserver.observe(aboutSection);
+
+  // ---------- Shared counter animation ----------
+  function animateCounter(counter) {
+    const target = +counter.dataset.target || 0;
+    let current = 0;
+    const duration = 600;
+    const increment = target / (duration / 16);
+    const updateCounter = () => {
+      if (current < target) {
+        current = Math.min(current + increment, target);
+        counter.textContent = Math.ceil(current);
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target;
+      }
+    };
+    requestAnimationFrame(updateCounter);
+  }
 });

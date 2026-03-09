@@ -1,12 +1,65 @@
 [
     {
+        "title": "TALOS - F&B MANAGEMENT PLATFORM",
+        "image": "./assets/images/thumbnail-talos-landing.jpg",
+        "tech": [
+            "HTML",
+            "CSS",
+            "JAVASCRIPT",
+            "TAILWIND"
+        ],
+        "description": "Landing page for Talos - a professional recipe & cost management desktop application for the food service industry.",
+        "liveUrl": "https://talos-app.netlify.app/",
+        "codeUrl": "https://github.com/VagTsop/talos-landing",
+        "featured": true
+    },
+    {
+        "title": "TALOS DESKTOP APP",
+        "image": "./assets/images/thumbnail-recipe-mastermind.png",
+        "tech": [
+            "REACT",
+            "TYPESCRIPT",
+            "ELECTRON",
+            "SQLITE"
+        ],
+        "description": "Offline-first desktop app for recipe management, cost analysis, menu planning & warehouse management with AI Copilot.",
+        "liveUrl": "https://github.com/VagTsop/talos-releases",
+        "codeUrl": "https://github.com/VagTsop/recipe-mastermind",
+        "featured": true
+    },
+    {
         "title": "WEATHER NOW - ANGULAR PWA",
         "image": "./assets/images/thumbnail-project-1-large-0.webp",
         "tech": [
             "ANGULAR"
         ],
+        "description": "Progressive web app showing real-time weather data with geolocation support.",
         "liveUrl": "https://vagtsop.github.io/weather-app/",
-        "codeUrl": "https://github.com/VagTsop/weather-app"
+        "codeUrl": "https://github.com/VagTsop/weather-app",
+        "featured": true
+    },
+    {
+        "title": "ADMIN DASHBOARD UI",
+        "image": "./assets/images/thumbnail-project-1-large-2.webp",
+        "tech": [
+            "ANGULAR",
+            "MATERIAL",
+            "SCSS"
+        ],
+        "description": "Full-featured admin dashboard with data tables, charts, and responsive layout.",
+        "liveUrl": "https://vagtsop.github.io/admin-dashboard/",
+        "codeUrl": "https://github.com/VagTsop/admin-dashboard",
+        "featured": true
+    },
+    {
+        "title": "MILLENIA BANK WEB APPLICATION",
+        "image": "./assets/images/thumbnail-project-2-large.webp",
+        "tech": [
+            "ANGULAR",
+            "SCSS"
+        ],
+        "liveUrl": "https://vagtsop.github.io/product-app/",
+        "codeUrl": "https://github.com/VagTsop/product-app"
     },
     {
         "title": "BROWSER EXTENSION MANAGER UI",
@@ -29,27 +82,6 @@
         ],
         "liveUrl": "https://vagtsop.github.io/conference-ticket-generator/conference-ticket-generator-main/index.html",
         "codeUrl": "https://github.com/VagTsop/conference-ticket-generator"
-    },
-    {
-        "title": "ADMIN DASHBOARD UI",
-        "image": "./assets/images/thumbnail-project-1-large-2.webp",
-        "tech": [
-            "ANGULAR",
-            "MATERIAL",
-            "SCSS"
-        ],
-        "liveUrl": "https://vagtsop.github.io/admin-dashboard/",
-        "codeUrl": "https://github.com/VagTsop/admin-dashboard"
-    },
-    {
-        "title": "MILLENIA BANK WEB APPLICATION",
-        "image": "./assets/images/thumbnail-project-2-large.webp",
-        "tech": [
-            "ANGULAR",
-            "SCSS"
-        ],
-        "liveUrl": "https://vagtsop.github.io/product-app/",
-        "codeUrl": "https://github.com/VagTsop/product-app"
     },
     {
         "title": "HOTEL SEARCH SAMPLE",
