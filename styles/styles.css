@@ -1237,7 +1237,7 @@ footer hr {
   border-color: rgba(0, 0, 0, 0.15);
 }
 [data-theme="light"] .theme-toggle svg {
-  stroke: var(--white);
+  stroke: var(--black);
 }
 [data-theme="light"] hr {
   border-color: rgba(0, 0, 0, 0.1);
