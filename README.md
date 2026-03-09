@@ -1,31 +1,36 @@
-# Frontend Mentor - Single-page developer portfolio
+# Vagelis Tsopanos - Developer Portfolio
 
-![Design preview for the Single-page developer portfolio coding challenge](./preview.jpg)
+![Portfolio Preview](./preview.jpg)
 
-## The challenge
+## About
 
-Your challenge is to build out this single-page portfolio and get it looking as close to the design as possible.
+Personal portfolio website showcasing my work as a front-end developer and freelancer based in Greece. Built with vanilla HTML, CSS, and JavaScript.
 
-I could use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+## Features
 
-Your users should be able to:
+- Responsive design (mobile, tablet, desktop)
+- Dark/Light mode toggle
+- Dynamic project loading with pagination
+- Animated sections on scroll
+- Contact form (EmailJS integration)
+- Google Analytics with GDPR cookie consent
+- SEO optimized (meta tags, Open Graph, JSON-LD structured data)
+- Accessibility focused (skip links, ARIA labels, semantic HTML)
+- 404 error page
 
-- Receive an error message when the `form` is submitted if:
-  - Any field is empty
-  - The email address is not formatted correctly
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+## Tech Stack
 
-## Technologies used
+- HTML5
+- CSS3 / SCSS
+- Vanilla JavaScript
+- EmailJS
+- Google Analytics 4
 
-For this simple simple page project I used only **HTML** and **CSS**. A simple form validation was enough. I used __required__ attribute on inputs and put the right type on them. 
+## Live Site
 
-For example. The code:
+[vagtsop.github.io/single-page-developer-portfolio](https://vagtsop.github.io/single-page-developer-portfolio/)
 
-```<input type="email" name="email" id="email" placeholder="EMAIL" aria-label="Email" inputmode="email" required>```
+## Contact
 
-The **type="email"** make the user type a valid email with @. Without it, the submit don't occur. A real word application with react, I would use __react-hook-form__ for it. To handle validation and error messages. However, this project was a simple one to train HTML and CSS.
-
-## Thank you
-
-Any tips are welcome. Thank you very much. 😁
+- [GitHub](https://github.com/VagTsop)
+- [LinkedIn](https://www.linkedin.com/in/tsopanosv)
