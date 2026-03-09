@@ -23,6 +23,7 @@ Personal portfolio website showcasing my work as a front-end developer and freel
 - HTML5
 - CSS3 / SCSS
 - Vanilla JavaScript
+- TypeScript
 - React
 - Electron
 - EmailJS
