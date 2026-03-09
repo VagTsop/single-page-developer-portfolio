@@ -1,6 +1,6 @@
 # Vagelis Tsopanos - Developer Portfolio
 
-![Portfolio Preview](./assets/images/repo%20hero%20image.png)
+![Portfolio Preview](./assets/images/og-preview.png)
 
 ## About
 
