@@ -61,47 +61,67 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePagerState();
   }
 
+  // Sanitize text to prevent XSS
+  function esc(str) {
+    var d = document.createElement("div");
+    d.textContent = str || "";
+    return d.innerHTML;
+  }
+
+  // Validate URL - only allow http/https
+  function safeUrl(url) {
+    if (!url) return "#";
+    try {
+      var u = new URL(url, location.href);
+      return u.protocol === "https:" || u.protocol === "http:" ? u.href : "#";
+    } catch (_) {
+      return "#";
+    }
+  }
+
   function renderCard(project) {
-    const techTags = (project.tech || [])
-      .map((t) => `<span>${t}</span>`)
-      .join("");
-    const thumb = project.thumb || project.image;
-    const sizes = "(max-width:736px) 90vw, 34rem";
-    const featuredClass = project.featured ? " featured-project" : "";
-    const featuredBadge = project.featured
+    var title = esc(project.title) || "Untitled";
+    var desc = esc(project.description);
+    var thumb = safeUrl(project.thumb || project.image);
+    var image = safeUrl(project.image);
+    var liveUrl = safeUrl(project.liveUrl);
+    var codeUrl = safeUrl(project.codeUrl);
+    var sizes = "(max-width:736px) 90vw, 34rem";
+    var featuredClass = project.featured ? " featured-project" : "";
+    var featuredBadge = project.featured
       ? '<span class="featured-badge">Featured</span>'
       : "";
-    const description = project.description
-      ? `<p class="project-description">${project.description}</p>`
+    var description = desc
+      ? '<p class="project-description">' + desc + "</p>"
       : "";
+    var techTags = (project.tech || [])
+      .map(function (t) { return "<span>" + esc(t) + "</span>"; })
+      .join("");
 
     container.insertAdjacentHTML(
       "beforeend",
-      `
-      <div class="single-project hidden${featuredClass}">
-        <div class="img-div">
-          ${featuredBadge}
-          <img
-            src="${thumb}"
-            srcset="${thumb} 600w, ${project.image} 1200w"
-            sizes="${sizes}"
-            width="544" height="400"
-            loading="lazy" decoding="async"
-            alt="${project.title || "Project"}" />
-          <div class="overlay-project">
-            <a href="${project.liveUrl}" target="_blank" rel="noopener">
-              <button type="button" class="custom-btn">View project</button>
-            </a>
-            <a href="${project.codeUrl}" target="_blank" rel="noopener">
-              <button type="button" class="custom-btn">View code</button>
-            </a>
-          </div>
-        </div>
-        <h3 class="heading-M">${project.title || "Untitled"}</h3>
-        ${description}
-        <div class="tech-used">${techTags}</div>
-      </div>
-      `
+      '<div class="single-project hidden' + featuredClass + '">' +
+        '<div class="img-div">' +
+          featuredBadge +
+          '<img src="' + thumb + '"' +
+            ' srcset="' + thumb + ' 600w, ' + image + ' 1200w"' +
+            ' sizes="' + sizes + '"' +
+            ' width="544" height="400"' +
+            ' loading="lazy" decoding="async"' +
+            ' alt="' + title + '" />' +
+          '<div class="overlay-project">' +
+            '<a href="' + liveUrl + '" target="_blank" rel="noopener noreferrer">' +
+              '<button type="button" class="custom-btn">View project</button>' +
+            '</a>' +
+            '<a href="' + codeUrl + '" target="_blank" rel="noopener noreferrer">' +
+              '<button type="button" class="custom-btn">View code</button>' +
+            '</a>' +
+          '</div>' +
+        '</div>' +
+        '<h3 class="heading-M">' + title + '</h3>' +
+        description +
+        '<div class="tech-used">' + techTags + '</div>' +
+      '</div>'
     );
   }
 
