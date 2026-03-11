@@ -1,85 +1,5 @@
 [
     {
-        "title": "TASKFLOW - MOBILE PRODUCTIVITY APP",
-        "image": "./assets/images/thumbnail-taskflow-mobile.png",
-        "tech": [
-            "REACT NATIVE",
-            "EXPO",
-            "TYPESCRIPT",
-            "NODE.JS",
-            "EXPRESS",
-            "SQLITE"
-        ],
-        "description": "React Native task management app with Kanban board, calendar view, project management, labels, dashboard with stats. Material Design UI with React Native Paper.",
-        "liveUrl": "https://taskflow-mobile.vercel.app",
-        "codeUrl": "https://github.com/VagTsop/taskflow-mobile",
-        "featured": true
-    },
-    {
-        "title": "ECOMMERCE PLATFORM",
-        "image": "./assets/images/thumbnail-ecommerce-platform.png",
-        "tech": [
-            "REACT",
-            "TYPESCRIPT",
-            "MATERIAL UI",
-            "NODE.JS",
-            "EXPRESS",
-            "SQLITE"
-        ],
-        "description": "Full-stack e-commerce store with product catalog, shopping cart, checkout flow, order management, admin dashboard, wishlist, reviews, coupons, and dark mode.",
-        "liveUrl": "https://ecommerce-platform-livid.vercel.app",
-        "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
-        "featured": true
-    },
-    {
-        "title": "AI CHAT PLATFORM",
-        "image": "./assets/images/thumbnail-ai-chat-platform.png",
-        "tech": [
-            "REACT",
-            "TYPESCRIPT",
-            "TAILWIND",
-            "NODE.JS",
-            "EXPRESS",
-            "SQLITE",
-            "SSE"
-        ],
-        "description": "Full-stack AI chat platform with multiple AI personas, real-time streaming responses, conversation management, markdown rendering, and admin analytics.",
-        "liveUrl": "https://ai-chat-platform-alpha.vercel.app",
-        "codeUrl": "https://github.com/VagTsop/ai-chat-platform",
-        "featured": true
-    },
-    {
-        "title": "FREELANCE RADAR - MARKET ANALYZER",
-        "image": "./assets/images/thumbnail-freelance-radar.png",
-        "tech": [
-            "REACT",
-            "TYPESCRIPT",
-            "TAILWIND",
-            "NODE.JS",
-            "EXPRESS",
-            "SQLITE"
-        ],
-        "description": "Job market scraper and analyzer that tracks skills, budgets, and trends across freelance platforms. Features demand charts, opportunity scoring, and portfolio strategy.",
-        "liveUrl": "https://github.com/VagTsop/freelance-radar",
-        "codeUrl": "https://github.com/VagTsop/freelance-radar",
-        "featured": true
-    },
-    {
-        "title": "SAAS ADMIN DASHBOARD",
-        "image": "./assets/images/thumbnail-deployed-dashboard.png",
-        "tech": [
-            "REACT",
-            "TYPESCRIPT",
-            "NODE.JS",
-            "EXPRESS",
-            "SQLITE"
-        ],
-        "description": "Full-stack SaaS admin panel with RBAC, billing simulation, real-time SSE notifications, drag & drop Kanban, PDF export, and file uploads. Deployed on Vercel + Railway.",
-        "liveUrl": "https://saas-admin-dashboard-omega.vercel.app",
-        "codeUrl": "https://github.com/VagTsop/saas-admin-dashboard",
-        "featured": true
-    },
-    {
         "title": "TALOS - F&B MANAGEMENT PLATFORM",
         "image": "./assets/images/thumbnail-talos-landing.png",
         "tech": [
@@ -105,6 +25,70 @@
         "description": "Offline-first desktop app for recipe management, cost analysis, menu planning & warehouse management with AI Copilot.",
         "liveUrl": "https://github.com/VagTsop/talos-releases",
         "codeUrl": "https://github.com/VagTsop/recipe-mastermind",
+        "featured": true
+    },
+    {
+        "title": "SAAS ADMIN DASHBOARD",
+        "image": "./assets/images/thumbnail-deployed-dashboard.png",
+        "tech": [
+            "REACT",
+            "TYPESCRIPT",
+            "NODE.JS",
+            "EXPRESS",
+            "SQLITE"
+        ],
+        "description": "Full-stack SaaS admin panel with RBAC, billing simulation, real-time SSE notifications, drag & drop Kanban, PDF export, and file uploads. Deployed on Vercel + Railway.",
+        "liveUrl": "https://saas-admin-dashboard-omega.vercel.app",
+        "codeUrl": "https://github.com/VagTsop/saas-admin-dashboard",
+        "featured": true
+    },
+    {
+        "title": "AI CHAT PLATFORM",
+        "image": "./assets/images/thumbnail-ai-chat-platform.png",
+        "tech": [
+            "REACT",
+            "TYPESCRIPT",
+            "TAILWIND",
+            "NODE.JS",
+            "EXPRESS",
+            "SQLITE",
+            "SSE"
+        ],
+        "description": "Full-stack AI chat platform with multiple AI personas, real-time streaming responses, conversation management, markdown rendering, and admin analytics.",
+        "liveUrl": "https://ai-chat-platform-alpha.vercel.app",
+        "codeUrl": "https://github.com/VagTsop/ai-chat-platform",
+        "featured": true
+    },
+    {
+        "title": "ECOMMERCE PLATFORM",
+        "image": "./assets/images/thumbnail-ecommerce-platform.png",
+        "tech": [
+            "REACT",
+            "TYPESCRIPT",
+            "MATERIAL UI",
+            "NODE.JS",
+            "EXPRESS",
+            "SQLITE"
+        ],
+        "description": "Full-stack e-commerce store with product catalog, shopping cart, checkout flow, order management, admin dashboard, wishlist, reviews, coupons, and dark mode.",
+        "liveUrl": "https://ecommerce-platform-livid.vercel.app",
+        "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
+        "featured": true
+    },
+    {
+        "title": "TASKFLOW - MOBILE PRODUCTIVITY APP",
+        "image": "./assets/images/thumbnail-taskflow-mobile.png",
+        "tech": [
+            "REACT NATIVE",
+            "EXPO",
+            "TYPESCRIPT",
+            "NODE.JS",
+            "EXPRESS",
+            "SQLITE"
+        ],
+        "description": "React Native task management app with Kanban board, calendar view, project management, labels, dashboard with stats. Material Design UI with React Native Paper.",
+        "liveUrl": "https://taskflow-mobile.vercel.app",
+        "codeUrl": "https://github.com/VagTsop/taskflow-mobile",
         "featured": true
     },
     {
