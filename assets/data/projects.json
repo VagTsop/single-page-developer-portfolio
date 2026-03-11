@@ -11,7 +11,7 @@
             "SQLITE"
         ],
         "description": "React Native task management app with Kanban board, calendar view, project management, labels, dashboard with stats. Material Design UI with React Native Paper.",
-        "liveUrl": "https://github.com/VagTsop/taskflow-mobile",
+        "liveUrl": "https://taskflow-mobile.vercel.app",
         "codeUrl": "https://github.com/VagTsop/taskflow-mobile",
         "featured": true
     },
@@ -27,7 +27,7 @@
             "SQLITE"
         ],
         "description": "Full-stack e-commerce store with product catalog, shopping cart, checkout flow, order management, admin dashboard, wishlist, reviews, coupons, and dark mode.",
-        "liveUrl": "https://github.com/VagTsop/ecommerce-platform",
+        "liveUrl": "https://ecommerce-platform-livid.vercel.app",
         "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
         "featured": true
     },
@@ -44,7 +44,7 @@
             "SSE"
         ],
         "description": "Full-stack AI chat platform with multiple AI personas, real-time streaming responses, conversation management, markdown rendering, and admin analytics.",
-        "liveUrl": "https://github.com/VagTsop/ai-chat-platform",
+        "liveUrl": "https://ai-chat-platform-alpha.vercel.app",
         "codeUrl": "https://github.com/VagTsop/ai-chat-platform",
         "featured": true
     },
