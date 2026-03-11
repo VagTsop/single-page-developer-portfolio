@@ -1,5 +1,20 @@
 [
     {
+        "title": "SAAS ADMIN DASHBOARD",
+        "image": "./assets/images/thumbnail-deployed-dashboard.png",
+        "tech": [
+            "REACT",
+            "TYPESCRIPT",
+            "NODE.JS",
+            "EXPRESS",
+            "SQLITE"
+        ],
+        "description": "Full-stack SaaS admin panel with RBAC, billing simulation, real-time SSE notifications, drag & drop Kanban, PDF export, and file uploads. Deployed on Vercel + Railway.",
+        "liveUrl": "https://saas-admin-dashboard-omega.vercel.app",
+        "codeUrl": "https://github.com/VagTsop/saas-admin-dashboard",
+        "featured": true
+    },
+    {
         "title": "TALOS - F&B MANAGEMENT PLATFORM",
         "image": "./assets/images/thumbnail-talos-landing.png",
         "tech": [
