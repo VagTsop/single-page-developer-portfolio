@@ -1,20 +1,6 @@
 [
     {
-        "title": "TALOS - F&B MANAGEMENT PLATFORM",
-        "image": "./assets/images/thumbnail-talos-landing.png",
-        "tech": [
-            "HTML",
-            "CSS",
-            "JAVASCRIPT",
-            "TAILWIND"
-        ],
-        "description": "Landing page for Talos - a professional recipe & cost management desktop application for the food service industry.",
-        "liveUrl": "https://talos-app.netlify.app/",
-        "codeUrl": "https://github.com/VagTsop/talos-landing",
-        "featured": true
-    },
-    {
-        "title": "TALOS DESKTOP APP",
+        "title": "TALOS - RESTAURANT COST MANAGEMENT",
         "image": "./assets/images/thumbnail-recipe-mastermind.png",
         "tech": [
             "REACT",
@@ -22,8 +8,8 @@
             "ELECTRON",
             "SQLITE"
         ],
-        "description": "Offline-first desktop app for recipe management, cost analysis, menu planning & warehouse management with AI Copilot.",
-        "liveUrl": "https://github.com/VagTsop/talos-releases",
+        "description": "Desktop application that helps restaurant owners calculate food cost per dish, plan profitable menus, and manage warehouse inventory — replacing spreadsheets with an AI-powered Copilot.",
+        "liveUrl": "https://talos-app.netlify.app/",
         "codeUrl": "https://github.com/VagTsop/recipe-mastermind",
         "featured": true
     },
@@ -37,7 +23,7 @@
             "EXPRESS",
             "SQLITE"
         ],
-        "description": "Full-stack SaaS admin panel with RBAC, billing simulation, real-time SSE notifications, drag & drop Kanban, PDF export, and file uploads. Deployed on Vercel + Railway.",
+        "description": "Admin dashboard for SaaS platforms with role-based access control, real-time notifications, task management via Kanban board, and PDF report generation.",
         "liveUrl": "https://saas-admin-dashboard-omega.vercel.app",
         "codeUrl": "https://github.com/VagTsop/saas-admin-dashboard",
         "featured": true
@@ -54,7 +40,7 @@
             "SQLITE",
             "SSE"
         ],
-        "description": "Full-stack AI chat platform with multiple AI personas, real-time streaming responses, conversation management, markdown rendering, and admin analytics.",
+        "description": "AI-powered customer support platform with multiple specialist personas, real-time streaming responses, conversation history, and admin analytics dashboard.",
         "liveUrl": "https://ai-chat-platform-alpha.vercel.app",
         "codeUrl": "https://github.com/VagTsop/ai-chat-platform",
         "featured": true
@@ -70,7 +56,7 @@
             "EXPRESS",
             "SQLITE"
         ],
-        "description": "Full-stack e-commerce store with product catalog, shopping cart, checkout flow, order management, admin dashboard, wishlist, reviews, coupons, and dark mode.",
+        "description": "Complete e-commerce solution with product catalog, checkout flow, order management, admin dashboard for inventory control, customer reviews, and coupon system.",
         "liveUrl": "https://ecommerce-platform-livid.vercel.app",
         "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
         "featured": true
@@ -86,7 +72,7 @@
             "EXPRESS",
             "SQLITE"
         ],
-        "description": "React Native task management app with Kanban board, calendar view, project management, labels, dashboard with stats. Material Design UI with React Native Paper.",
+        "description": "Mobile productivity app for teams — Kanban boards, calendar scheduling, project tracking, and performance dashboard. Built for iOS and Android.",
         "liveUrl": "https://taskflow-mobile.vercel.app",
         "codeUrl": "https://github.com/VagTsop/taskflow-mobile",
         "featured": true
@@ -97,7 +83,7 @@
         "tech": [
             "ANGULAR"
         ],
-        "description": "Progressive web app showing real-time weather data with geolocation support.",
+        "description": "Real-time weather dashboard PWA with geolocation, forecast data, and offline support — installable on any device.",
         "liveUrl": "https://vagtsop.github.io/weather-app/",
         "codeUrl": "https://github.com/VagTsop/weather-app",
         "featured": true
@@ -110,7 +96,7 @@
             "MATERIAL",
             "SCSS"
         ],
-        "description": "Full-featured admin dashboard with data tables, charts, and responsive layout.",
+        "description": "Enterprise admin dashboard with data tables, analytics charts, and responsive layout — designed for internal business operations.",
         "liveUrl": "https://vagtsop.github.io/admin-dashboard/",
         "codeUrl": "https://github.com/VagTsop/admin-dashboard",
         "featured": true
