@@ -9,7 +9,7 @@
             "SQLITE"
         ],
         "description": "Desktop application that helps restaurant owners calculate food cost per dish, plan profitable menus, and manage warehouse inventory — replacing spreadsheets with an AI-powered Copilot.",
-        "liveUrl": "https://talos-app.netlify.app/",
+        "liveUrl": "https://talosrecipes.com/",
         "codeUrl": "https://github.com/VagTsop/recipe-mastermind",
         "featured": true
     },
