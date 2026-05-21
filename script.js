@@ -94,9 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
     var description = desc
       ? '<p class="project-description">' + desc + "</p>"
       : "";
-    var techTags = (project.tech || [])
-      .map(function (t) { return "<span>" + esc(t) + "</span>"; })
+    var techList = (project.tech || []).map(esc);
+    var techTags = techList
+      .map(function (t) { return "<span>" + t + "</span>"; })
       .join("");
+    var altText = techList.length
+      ? "Screenshot of " + title + " — built with " + techList.join(", ")
+      : "Screenshot of " + title;
 
     container.insertAdjacentHTML(
       "beforeend",
@@ -108,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ' sizes="' + sizes + '"' +
             ' width="544" height="400"' +
             ' loading="lazy" decoding="async"' +
-            ' alt="' + title + '" />' +
+            ' alt="' + altText + '" />' +
           '<div class="overlay-project">' +
             '<a href="' + liveUrl + '" target="_blank" rel="noopener noreferrer">' +
               '<button type="button" class="custom-btn">View project</button>' +
