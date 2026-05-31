@@ -31,7 +31,7 @@ Personal portfolio website showcasing my work as a front-end developer and freel
 
 ## Live Site
 
-[vagtsop.github.io/single-page-developer-portfolio](https://vagtsop.github.io/single-page-developer-portfolio/)
+[vagtsop.dev](https://vagtsop.dev/)
 
 ## Contact
 
