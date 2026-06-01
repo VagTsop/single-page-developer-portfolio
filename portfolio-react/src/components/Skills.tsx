@@ -1,6 +1,6 @@
 import { useRef, type ComponentType } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Accessibility, Database, Zap, GitBranch, Server } from 'lucide-react'
+import { Accessibility, Database, Zap, GitBranch, Server, Boxes, FlaskConical } from 'lucide-react'
 import { fadeUp, staggerContainer, viewportOnce } from '../lib/motion'
 import {
   TypeScriptLogo,
@@ -13,6 +13,8 @@ import {
   TailwindLogo,
   NodeLogo,
   ElectronLogo,
+  DockerLogo,
+  JestLogo,
 } from './TechLogos'
 import SectionHeading from './SectionHeading'
 
@@ -42,6 +44,10 @@ const SKILLS: Skill[] = [
   { name: 'SQLite', years: 4, Logo: tinted(Database, '#0F80CC') },
   { name: 'Electron', years: 2, Logo: ElectronLogo },
   { name: 'Vite', years: 3, Logo: tinted(Zap, '#646CFF') },
+  { name: 'Vitest', years: 2, Logo: tinted(FlaskConical, '#729b1b') },
+  { name: 'Jest', years: 4, Logo: JestLogo },
+  { name: 'Webpack', years: 5, Logo: tinted(Boxes, '#8DD6F9') },
+  { name: 'Docker', years: 3, Logo: DockerLogo },
   { name: 'Git', years: 6, Logo: tinted(GitBranch, '#F05032') },
   { name: 'Accessibility', years: 6, Logo: tinted(Accessibility, '#818cf8') },
 ]
