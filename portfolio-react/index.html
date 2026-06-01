@@ -16,6 +16,13 @@
       "
     />
 
+    <!-- Canonical host: bounce the default *.pages.dev URL to vagtsop.dev -->
+    <script>
+      if (location.hostname === 'single-page-developer-portfolio.pages.dev') {
+        location.replace('https://vagtsop.dev' + location.pathname + location.search + location.hash)
+      }
+    </script>
+
     <!-- SEO Meta Tags -->
     <title>Vagelis Tsopanos — Front-End Developer | Dashboards & SaaS Tools</title>
     <meta
