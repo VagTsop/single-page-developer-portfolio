@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { LayoutDashboard, Wrench, BarChart3, Smartphone, ArrowUpRight } from 'lucide-react'
+import { LayoutDashboard, Wrench, BarChart3, Smartphone, Puzzle, Gauge, ArrowUpRight } from 'lucide-react'
 import { scaleIn, staggerContainer, viewportOnce } from '../lib/motion'
 import SectionHeading from './SectionHeading'
 
@@ -27,6 +27,18 @@ const SERVICES = [
     title: 'Web & Mobile Apps',
     body: 'Cross-platform products with React, React Native, and Electron — from desktop apps to installable PWAs and mobile experiences.',
     tech: ['React Native', 'Expo', 'PWA'],
+  },
+  {
+    icon: Puzzle,
+    title: 'Developer Tooling',
+    body: 'Custom VS Code extensions that automate dev workflows — like GenSpec, which gathers file context with ts-morph and generates ready-to-use LLM prompts for Angular unit and integration tests.',
+    tech: ['VS Code API', 'ts-morph', 'Node.js', 'Workers'],
+  },
+  {
+    icon: Gauge,
+    title: 'Performance Optimization',
+    body: 'Tuning Angular apps for speed — bundle and lazy-loading strategy, change-detection optimization, and Core Web Vitals improvements that deliver measurable results.',
+    tech: ['Angular', 'Lighthouse', 'Web Vitals', 'Profiling'],
   },
 ]
 
