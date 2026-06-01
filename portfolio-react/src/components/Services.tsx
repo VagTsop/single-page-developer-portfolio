@@ -31,7 +31,7 @@ const SERVICES = [
   {
     icon: Puzzle,
     title: 'Developer Tooling',
-    body: 'Custom VS Code extensions that automate dev workflows — like GenSpec, which gathers file context with ts-morph and generates ready-to-use LLM prompts for Angular unit and integration tests.',
+    body: 'Custom VS Code extensions that automate dev workflows — context gathering with ts-morph, off-thread analysis, and generated, ready-to-use LLM prompts.',
     tech: ['VS Code API', 'ts-morph', 'Node.js', 'Workers'],
   },
   {
