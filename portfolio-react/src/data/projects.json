@@ -1,5 +1,20 @@
 [
     {
+        "title": "TACET - SCROLL-DRIVEN PRODUCT LANDING PAGE",
+        "image": "./assets/images/thumbnail-tacet-landing.png",
+        "tech": [
+            "VITE",
+            "JAVASCRIPT",
+            "GSAP",
+            "SCROLLTRIGGER",
+            "LENIS"
+        ],
+        "description": "Cinematic product landing page for a premium headphones brand — a full-screen AI-generated background video scrubs frame-by-frame with scroll, with pinned sections, glass UI, and smooth scrolling. Brand identity and media generated end-to-end with AI.",
+        "liveUrl": "#",
+        "codeUrl": "#",
+        "featured": true
+    },
+    {
         "title": "TALOS - RESTAURANT COST MANAGEMENT",
         "image": "./assets/images/thumbnail-recipe-mastermind.png",
         "tech": [
