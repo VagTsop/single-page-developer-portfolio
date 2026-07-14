@@ -16,7 +16,7 @@
     },
     {
         "title": "ADD RECYCLING - CORPORATE WEBSITE",
-        "image": "./assets/images/thumbnail-add-recycling.png",
+        "image": "./assets/images/thumbnail-add-recycling.webp",
         "tech": [
             "REACT",
             "VITE",
