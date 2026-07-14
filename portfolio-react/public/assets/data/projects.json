@@ -15,6 +15,20 @@
         "featured": true
     },
     {
+        "title": "ADD RECYCLING - CORPORATE WEBSITE",
+        "image": "./assets/images/thumbnail-add-recycling.png",
+        "tech": [
+            "REACT",
+            "VITE",
+            "FRAMER MOTION",
+            "RADIX UI"
+        ],
+        "description": "Bilingual (EL/EN) corporate website for an electronics recycling company - e-scrap, cables, and catalytic converter services, with animated hero sections and a contact flow.",
+        "liveUrl": "https://www.addrecycling.com/",
+        "codeUrl": "#",
+        "featured": true
+    },
+    {
         "title": "TALOS - RESTAURANT COST MANAGEMENT",
         "image": "./assets/images/thumbnail-recipe-mastermind.png",
         "tech": [
