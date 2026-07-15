@@ -44,5 +44,17 @@ export const wordReveal: Variants = {
   },
 }
 
+/** TACET-style staged blur reveal: each element receives its own delay via
+ *  the `custom` prop, so a whole sequence can be choreographed precisely. */
+export const staggeredBlur: Variants = {
+  hidden: { opacity: 0, y: 18, filter: 'blur(8px)' },
+  show: (delay: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: EASE_EXPO, delay },
+  }),
+}
+
 /** Shared viewport config for scroll-triggered reveals. */
 export const viewportOnce = { once: true, margin: '-80px' } as const

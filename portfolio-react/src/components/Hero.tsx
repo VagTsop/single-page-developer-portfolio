@@ -1,15 +1,42 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
-import { fadeUp, staggerContainer, wordReveal } from '../lib/motion'
+import { staggeredBlur } from '../lib/motion'
 import MagneticButton from './MagneticButton'
 import HeroAvatar from './HeroAvatar'
 
 const LINE_1 = ['Nice', 'to', 'meet', 'you!']
 const NAME = ['Vagelis', 'Tsopanos.']
+const INTRO: { w: string; strong?: boolean }[] = [
+  { w: 'Front-end' }, { w: 'developer' }, { w: 'building' },
+  { w: 'SaaS', strong: true }, { w: 'dashboards,', strong: true },
+  { w: 'business' }, { w: 'tools,' }, { w: 'and' }, { w: 'data-driven' },
+  { w: 'interfaces' }, { w: 'that' }, { w: 'help' }, { w: 'companies' },
+  { w: 'make' }, { w: 'better' }, { w: 'decisions.' },
+]
+
+/* choreography (seconds after the preloader hands off) */
+const T_TITLE = 0.25   // headline words: slow, deliberate
+const STEP_TITLE = 0.14
+const T_INTRO = T_TITLE + (LINE_1.length + NAME.length + 1) * STEP_TITLE + 0.15
+const STEP_INTRO = 0.045
+const T_ACTIONS = T_INTRO + INTRO.length * STEP_INTRO + 0.2
 
 export default function Hero() {
   const reduce = useReducedMotion()
+
+  // the entrance choreography starts only once the preloader has faded,
+  // otherwise the whole sequence would play hidden behind it
+  const [entered, setEntered] = useState(false)
+  useEffect(() => {
+    if ((window as Window & { __preloaderDone?: boolean }).__preloaderDone) {
+      setEntered(true)
+      return
+    }
+    const onDone = () => setEntered(true)
+    window.addEventListener('preloader:done', onDone, { once: true })
+    return () => window.removeEventListener('preloader:done', onDone)
+  }, [])
   // phones get a 3x lighter encode of the same loop (1.3MB vs 4.2MB)
   const videoSrc = useMemo(
     () =>
@@ -70,52 +97,78 @@ export default function Hero() {
       />
 
       <motion.div
-        variants={staggerContainer}
         initial="hidden"
-        animate="show"
+        animate={entered ? 'show' : 'hidden'}
         className="relative z-10 mx-auto max-w-4xl px-6 text-center"
       >
         {/* avatar with rotating halo + orbiting tech logos */}
-        <motion.div variants={fadeUp} className="mb-4 flex justify-center">
+        <motion.div variants={staggeredBlur} custom={0} className="mb-4 flex justify-center">
           <HeroAvatar />
         </motion.div>
 
         <motion.span
-          variants={fadeUp}
+          variants={staggeredBlur}
+          custom={0.1}
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-1.5 font-mono text-xs text-fg-muted backdrop-blur"
         >
           <span className="h-2 w-2 rounded-full bg-live shadow-[0_0_8px] shadow-live" />
           Available for freelance &amp; full-time
         </motion.span>
 
-        {/* headline — per-word reveal */}
+        {/* headline — TACET-style word-by-word blur reveal */}
         <h1 className="text-5xl leading-[1.05] sm:text-7xl">
           <span className="flex flex-wrap justify-center gap-x-[0.25em]">
             {LINE_1.map((w, i) => (
-              <motion.span key={i} variants={wordReveal} className="inline-block">
+              <motion.span
+                key={i}
+                variants={staggeredBlur}
+                custom={T_TITLE + i * STEP_TITLE}
+                className="inline-block"
+              >
                 {w}
               </motion.span>
             ))}
           </span>
           <span className="mt-2 flex flex-wrap items-baseline justify-center gap-x-[0.25em]">
-            <motion.span variants={wordReveal} className="inline-block">
+            <motion.span
+              variants={staggeredBlur}
+              custom={T_TITLE + LINE_1.length * STEP_TITLE}
+              className="inline-block"
+            >
               I&apos;m
             </motion.span>
             {NAME.map((w, i) => (
-              <motion.span key={i} variants={wordReveal} className="text-shimmer inline-block">
+              <motion.span
+                key={i}
+                variants={staggeredBlur}
+                custom={T_TITLE + (LINE_1.length + 1 + i) * STEP_TITLE}
+                className="text-shimmer inline-block"
+              >
                 {w}
               </motion.span>
             ))}
           </span>
         </h1>
 
-        <motion.p variants={fadeUp} className="mx-auto mt-7 max-w-xl text-lg text-fg-muted">
-          Front-end developer building{' '}
-          <span className="text-fg">SaaS dashboards</span>, business tools, and data-driven
-          interfaces that help companies make better decisions.
-        </motion.p>
+        {/* intro copy — same treatment, faster cadence */}
+        <p className="mx-auto mt-7 flex max-w-xl flex-wrap justify-center gap-x-[0.3em] text-lg text-fg-muted">
+          {INTRO.map((word, i) => (
+            <motion.span
+              key={i}
+              variants={staggeredBlur}
+              custom={T_INTRO + i * STEP_INTRO}
+              className={`inline-block ${word.strong ? 'text-fg' : ''}`}
+            >
+              {word.w}
+            </motion.span>
+          ))}
+        </p>
 
-        <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <motion.div
+          variants={staggeredBlur}
+          custom={T_ACTIONS}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
           <MagneticButton
             href="#contact"
             className="group inline-flex items-center gap-2 rounded-xl bg-brand px-6 py-3.5 font-medium text-white shadow-xl shadow-brand/30"

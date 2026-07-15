@@ -17,14 +17,23 @@ export default function Preloader() {
 
     const finish = () => {
       const elapsed = performance.now() - start
-      timer = window.setTimeout(() => setDone(true), Math.max(0, MIN_SHOW_MS - elapsed))
+      timer = window.setTimeout(() => {
+        setDone(true)
+        // let the hero know it can start its entrance choreography
+        ;(window as Window & { __preloaderDone?: boolean }).__preloaderDone = true
+        window.dispatchEvent(new Event('preloader:done'))
+      }, Math.max(0, MIN_SHOW_MS - elapsed))
     }
 
     if (document.readyState === 'complete') finish()
     else window.addEventListener('load', finish, { once: true })
 
     // hard fallback: never trap the visitor on the loader
-    const failsafe = window.setTimeout(() => setDone(true), 6000)
+    const failsafe = window.setTimeout(() => {
+      setDone(true)
+      ;(window as Window & { __preloaderDone?: boolean }).__preloaderDone = true
+      window.dispatchEvent(new Event('preloader:done'))
+    }, 6000)
     return () => {
       window.removeEventListener('load', finish)
       clearTimeout(timer)
