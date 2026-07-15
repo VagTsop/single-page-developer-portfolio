@@ -1,7 +1,7 @@
 [
     {
         "title": "TACET - SCROLL-DRIVEN PRODUCT LANDING PAGE",
-        "image": "./assets/images/thumbnail-tacet-landing.png",
+        "image": "./assets/images/thumbnail-tacet-landing.webp",
         "tech": [
             "VITE",
             "JAVASCRIPT",
@@ -76,7 +76,7 @@
     },
     {
         "title": "ECOMMERCE PLATFORM",
-        "image": "./assets/images/thumbnail-ecommerce-platform.png",
+        "image": "./assets/images/thumbnail-ecommerce-platform.webp",
         "tech": [
             "REACT",
             "TYPESCRIPT",

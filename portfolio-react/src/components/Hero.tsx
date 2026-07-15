@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { fadeUp, staggerContainer, wordReveal } from '../lib/motion'
@@ -9,6 +10,14 @@ const NAME = ['Vagelis', 'Tsopanos.']
 
 export default function Hero() {
   const reduce = useReducedMotion()
+  // phones get a 3x lighter encode of the same loop (1.3MB vs 4.2MB)
+  const videoSrc = useMemo(
+    () =>
+      typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches
+        ? '/assets/videos/ambient-particles-mobile.mp4'
+        : '/assets/videos/ambient-particles.mp4',
+    [],
+  )
 
   return (
     <section
@@ -18,7 +27,7 @@ export default function Hero() {
       {/* full-bleed ambient video backdrop, Satori-style */}
       <div className="absolute inset-0" aria-hidden>
         <video
-          src="/assets/videos/ambient-particles.mp4"
+          src={videoSrc}
           autoPlay
           muted
           loop
