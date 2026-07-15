@@ -15,6 +15,10 @@ export default function NodesBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    // skip entirely on phones: a permanent rAF canvas loop is one of the
+    // biggest main-thread costs on mobile, and there is no cursor to link to
+    if (window.matchMedia('(max-width: 768px)').matches) return
+
     const canvas = canvasRef.current
     if (!canvas) return
     const context = canvas.getContext('2d')

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { fadeUp, staggerContainer, wordReveal } from '../lib/motion'
@@ -19,6 +19,18 @@ export default function Hero() {
     [],
   )
 
+  // decorative: don't let the video compete with first paint / LCP —
+  // mount it only after the window has fully loaded
+  const [showVideo, setShowVideo] = useState(false)
+  useEffect(() => {
+    if (document.readyState === 'complete') setShowVideo(true)
+    else {
+      const onLoad = () => setShowVideo(true)
+      window.addEventListener('load', onLoad, { once: true })
+      return () => window.removeEventListener('load', onLoad)
+    }
+  }, [])
+
   return (
     <section
       id="top"
@@ -26,14 +38,19 @@ export default function Hero() {
     >
       {/* full-bleed ambient video backdrop, Satori-style */}
       <div className="absolute inset-0" aria-hidden>
-        <video
-          src={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="h-full w-full object-cover opacity-60"
-        />
+        {showVideo && (
+          <motion.video
+            src={videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            className="h-full w-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/45 to-bg" />
       </div>
 
