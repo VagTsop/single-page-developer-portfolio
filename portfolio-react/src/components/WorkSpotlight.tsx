@@ -72,16 +72,19 @@ export default function WorkSpotlight() {
                   isDimmed ? 'scale-100 brightness-[0.5]' : isActive ? 'scale-105 brightness-100' : 'scale-100 brightness-[0.75]'
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/25 to-transparent" />
+              {/* stronger scrim at the bottom half so copy stays readable over bright frames */}
+              <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/60 to-transparent" />
 
               {/* content */}
               <div className="relative flex h-full flex-col justify-end p-6">
                 <span className="mb-2 font-mono text-xs tracking-[0.25em] text-brand-bright">
                   {String(i + 1).padStart(2, '0')}.
                 </span>
-                <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{p.title}</h3>
+                <h3 className="font-display text-xl font-bold text-fg drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] sm:text-2xl">
+                  {p.title}
+                </h3>
                 <p
-                  className={`mt-2 max-w-md text-sm leading-relaxed text-fg-muted transition-all duration-500 md:overflow-hidden ${
+                  className={`mt-2 max-w-md text-sm leading-relaxed text-fg drop-shadow-[0_1px_8px_rgba(0,0,0,0.95)] transition-all duration-500 md:overflow-hidden ${
                     isActive ? 'md:max-h-40 md:opacity-100' : 'md:max-h-0 md:opacity-0'
                   }`}
                 >
@@ -91,7 +94,7 @@ export default function WorkSpotlight() {
                   {p.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-md border border-white/10 bg-bg/50 px-2.5 py-1 font-mono text-[11px] text-fg-muted backdrop-blur-sm"
+                      className="rounded-md border border-white/10 bg-bg/70 px-2.5 py-1 font-mono text-[11px] text-fg backdrop-blur-sm"
                     >
                       {t}
                     </span>

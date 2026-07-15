@@ -41,7 +41,7 @@ export default function Preloader() {
     <AnimatePresence>
       {!done && (
         <motion.div
-          className="fixed inset-0 z-[200] grid place-items-center bg-bg"
+          className="fixed inset-x-0 top-0 z-[200] grid h-dvh place-items-center bg-bg"
           exit={{ opacity: 0, transition: { duration: 0.55, ease: 'easeInOut' } }}
           aria-hidden="true"
         >
@@ -70,7 +70,7 @@ export default function Preloader() {
               />
             </svg>
             <motion.span
-              className="font-display text-sm font-bold tracking-[0.3em] text-fg-muted uppercase"
+              className="pl-[0.3em] font-display text-sm font-bold tracking-[0.3em] text-fg-muted uppercase"
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.5 }}
