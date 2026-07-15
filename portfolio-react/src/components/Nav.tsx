@@ -35,6 +35,7 @@ export default function Nav() {
       >
         <a href="#top" className="group flex items-center gap-2 font-display text-lg font-bold text-fg">
           <img
+            id="nav-brand-logo"
             src="/assets/images/favicon.svg"
             alt=""
             className="h-8 w-8 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105"

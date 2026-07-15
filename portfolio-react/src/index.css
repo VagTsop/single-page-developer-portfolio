@@ -242,3 +242,12 @@
   border: 2px solid var(--color-bg);
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--color-fg-dim); }
+
+/* preloader → navbar logo handoff: the framed navbar icon stays hidden
+   until the flying mark lands on it, then fades in as the mark fades out */
+body.preloading #nav-brand-logo {
+  opacity: 0;
+}
+#nav-brand-logo {
+  transition: opacity 0.25s ease 0.05s;
+}
