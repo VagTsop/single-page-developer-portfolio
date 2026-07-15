@@ -69,10 +69,10 @@ export default function WorkSpotlight() {
                 alt=""
                 loading="lazy"
                 className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                  isDimmed ? 'scale-100 brightness-[0.3]' : isActive ? 'scale-105 brightness-[0.55]' : 'scale-100 brightness-[0.4]'
+                  isDimmed ? 'scale-100 brightness-[0.5]' : isActive ? 'scale-105 brightness-100' : 'scale-100 brightness-[0.75]'
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-bg/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/25 to-transparent" />
 
               {/* content */}
               <div className="relative flex h-full flex-col justify-end p-6">

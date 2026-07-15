@@ -90,6 +90,7 @@ export default function Contact() {
                 <LinkedinIcon size={19} />
               </a>
             </motion.div>
+
           </motion.div>
         </div>
 

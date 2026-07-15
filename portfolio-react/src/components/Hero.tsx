@@ -11,7 +11,23 @@ export default function Hero() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="top" className="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32">
+    <section
+      id="top"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-20"
+    >
+      {/* full-bleed ambient video backdrop, Satori-style */}
+      <div className="absolute inset-0" aria-hidden>
+        <video
+          src="/assets/videos/ambient-particles.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/70 via-bg/45 to-bg" />
+      </div>
+
       {/* grid + connected-nodes constellation + autonomously drifting glow backdrop */}
       <div className="grid-backdrop absolute inset-0" aria-hidden />
       <motion.div

@@ -37,13 +37,13 @@ export default function HeroAvatar() {
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
         <div className="relative">
-          <img
-            src="/assets/images/image-profile-desktop.webp"
-            alt="Vagelis Tsopanos"
-            width={144}
-            height={144}
-            className="h-36 w-36 rounded-full border border-border object-cover shadow-2xl shadow-brand/30 ring-4 ring-bg"
-          />
+          <div className="grid h-36 w-36 place-items-center rounded-full border border-border bg-bg shadow-2xl shadow-brand/30 ring-4 ring-bg">
+            <svg viewBox="0 0 64 64" className="h-20 w-20" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4.2" aria-label="VagTsop logo">
+              <path d="M23 21 L12 32 L23 43" stroke="var(--color-brand-bright)" />
+              <path d="M36.5 18.5 L29.5 45.5" stroke="var(--color-cyan)" />
+              <path d="M41 21 L52 32 L41 43" stroke="var(--color-brand-bright)" />
+            </svg>
+          </div>
           <span className="absolute bottom-2 right-2 grid h-7 w-7 place-items-center rounded-full bg-bg ring-2 ring-bg">
             <span className="h-3.5 w-3.5 rounded-full bg-live shadow-[0_0_8px] shadow-live" />
           </span>
