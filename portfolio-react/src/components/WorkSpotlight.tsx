@@ -1,25 +1,48 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink } from 'lucide-react'
-import { GithubIcon } from './icons'
+import { ArrowUpRight } from 'lucide-react'
 import SectionHeading from './SectionHeading'
-import { projects } from '../lib/projects'
 import { fadeUp, viewportOnce } from '../lib/motion'
 
+interface Pillar {
+  image: string
+  title: string
+  body: string
+  tech: string[]
+}
+
+const PILLARS: Pillar[] = [
+  {
+    image: '/assets/images/spotlight-dashboards.jpg',
+    title: 'SaaS Dashboards & Data',
+    body: 'Analytics dashboards, admin panels, and interactive reports that turn complex data into decisions — real-time updates, role-based access, scalable architecture.',
+    tech: ['Angular', 'React', 'TypeScript', 'Charts'],
+  },
+  {
+    image: '/assets/images/spotlight-apps.jpg',
+    title: 'Web & Mobile Apps',
+    body: 'Cross-platform products from desktop tools to installable PWAs and native-feeling mobile experiences — one codebase, every screen.',
+    tech: ['React Native', 'Expo', 'Electron', 'PWA'],
+  },
+  {
+    image: '/assets/images/spotlight-ai.jpg',
+    title: 'AI & Developer Tooling',
+    body: 'AI-powered features and custom developer tools that automate workflows — VS Code extensions, code analysis, and generated, ready-to-use LLM prompts.',
+    tech: ['VS Code API', 'ts-morph', 'Node.js', 'LLM'],
+  },
+]
+
 /**
- * Satori-style expansion grid: three full-height panels sit side by side;
- * hovering one grows it (flex transition) while the others slim down and dim.
- * On small screens the panels stack vertically at full width instead.
+ * Satori-style expansion grid: three full-height service panels sit side by
+ * side; hovering one grows it (flex transition) while the others slim down
+ * and dim. On small screens the panels stack vertically at full width.
  */
 export default function WorkSpotlight() {
-  const spotlight = projects.filter((p) => p.featured).slice(0, 3)
   const [active, setActive] = useState<number | null>(null)
-
-  if (spotlight.length < 3) return null
 
   return (
     <section id="spotlight" className="mx-auto max-w-7xl px-5 py-24 sm:px-8">
-      <SectionHeading eyebrow="Spotlight" title="Flagship" highlight="work" />
+      <SectionHeading eyebrow="In practice" title="Services in" highlight="action" />
 
       <motion.div
         variants={fadeUp}
@@ -29,7 +52,7 @@ export default function WorkSpotlight() {
         className="flex flex-col gap-4 md:h-[540px] md:flex-row"
         onMouseLeave={() => setActive(null)}
       >
-        {spotlight.map((p, i) => {
+        {PILLARS.map((p, i) => {
           const isActive = active === i
           const isDimmed = active !== null && !isActive
           return (
@@ -46,52 +69,42 @@ export default function WorkSpotlight() {
                 alt=""
                 loading="lazy"
                 className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${
-                  isDimmed ? 'scale-100 brightness-[0.35]' : isActive ? 'scale-105 brightness-75' : 'scale-100 brightness-[0.55]'
+                  isDimmed ? 'scale-100 brightness-[0.3]' : isActive ? 'scale-105 brightness-[0.55]' : 'scale-100 brightness-[0.4]'
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-bg/10" />
 
               {/* content */}
               <div className="relative flex h-full flex-col justify-end p-6">
                 <span className="mb-2 font-mono text-xs tracking-[0.25em] text-brand-bright">
                   {String(i + 1).padStart(2, '0')}.
                 </span>
-                <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">
-                  {p.title.split(' - ')[0]}
-                </h3>
+                <h3 className="font-display text-xl font-bold text-fg sm:text-2xl">{p.title}</h3>
                 <p
                   className={`mt-2 max-w-md text-sm leading-relaxed text-fg-muted transition-all duration-500 md:overflow-hidden ${
                     isActive ? 'md:max-h-40 md:opacity-100' : 'md:max-h-0 md:opacity-0'
                   }`}
                 >
-                  {p.description}
+                  {p.body}
                 </p>
-                <div
-                  className={`mt-4 flex items-center gap-3 transition-all duration-500 md:overflow-hidden ${
-                    isActive ? 'md:max-h-12 md:opacity-100' : 'md:max-h-12 md:opacity-100 lg:max-h-12'
+                <div className="mt-4 flex flex-wrap items-center gap-1.5">
+                  {p.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-md border border-white/10 bg-bg/50 px-2.5 py-1 font-mono text-[11px] text-fg-muted backdrop-blur-sm"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <a
+                  href="#contact"
+                  className={`mt-4 inline-flex w-fit items-center gap-1.5 rounded-lg bg-brand/90 px-3.5 py-2 text-xs font-semibold text-white transition-all duration-500 hover:bg-brand md:overflow-hidden ${
+                    isActive ? 'md:max-h-12 md:opacity-100' : 'md:max-h-0 md:py-0 md:opacity-0'
                   }`}
                 >
-                  {p.liveUrl && p.liveUrl !== '#' && (
-                    <a
-                      href={p.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg bg-brand/90 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-brand"
-                    >
-                      <ExternalLink size={13} /> Live
-                    </a>
-                  )}
-                  {p.codeUrl && p.codeUrl !== '#' && (
-                    <a
-                      href={p.codeUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-bg/60 px-3 py-1.5 text-xs font-semibold text-fg-muted backdrop-blur transition-colors hover:text-fg"
-                    >
-                      <GithubIcon size={13} /> Code
-                    </a>
-                  )}
-                </div>
+                  Discuss a project <ArrowUpRight size={13} />
+                </a>
               </div>
             </article>
           )
