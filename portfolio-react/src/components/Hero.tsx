@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowRight, Download, MapPin } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
 import { fadeUp, staggerContainer, wordReveal } from '../lib/motion'
 import MagneticButton from './MagneticButton'
 import HeroAvatar from './HeroAvatar'
@@ -88,11 +88,6 @@ export default function Hero() {
           <span className="text-fg">SaaS dashboards</span>, business tools, and data-driven
           interfaces that help companies make better decisions.
         </motion.p>
-
-        <motion.div variants={fadeUp} className="mt-5 flex items-center justify-center gap-2 text-sm text-fg-dim">
-          <MapPin size={15} className="text-brand-bright" />
-          Based in Greece · 6+ years experience
-        </motion.div>
 
         <motion.div variants={fadeUp} className="mt-10 flex flex-wrap items-center justify-center gap-3">
           <MagneticButton

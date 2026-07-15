@@ -10,9 +10,7 @@ export default function Footer() {
           Vagelis Tsopanos
         </div>
 
-        <p className="order-3 text-sm text-fg-dim sm:order-2">
-          © {new Date().getFullYear()} · Built with React, Framer Motion &amp; Tailwind
-        </p>
+        <p className="order-3 text-sm text-fg-dim sm:order-2">© {new Date().getFullYear()}</p>
 
         <div className="order-2 flex items-center gap-2 sm:order-3">
           <a
