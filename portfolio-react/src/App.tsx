@@ -1,3 +1,5 @@
+import Preloader from './components/Preloader'
+import WorkSpotlight from './components/WorkSpotlight'
 import AnimatedBackground from './components/AnimatedBackground'
 import NodesBackground from './components/NodesBackground'
 import ScrollProgress from './components/ScrollProgress'
@@ -14,6 +16,7 @@ import CookieConsent from './components/CookieConsent'
 export default function App() {
   return (
     <>
+      <Preloader />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
@@ -29,6 +32,7 @@ export default function App() {
         <About />
         <Skills />
         <Services />
+        <WorkSpotlight />
         <Projects />
         <Contact />
       </main>
