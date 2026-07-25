@@ -12,7 +12,8 @@
         "description": "Cinematic product landing page for a premium headphones brand — a full-screen AI-generated background video scrubs frame-by-frame with scroll, with pinned sections, glass UI, and smooth scrolling. Brand identity and media generated end-to-end with AI.",
         "liveUrl": "https://vagtsop.github.io/tacet/",
         "codeUrl": "https://github.com/VagTsop/tacet",
-        "featured": true
+        "featured": true,
+        "impact": "Concept to production in two days: AI-generated brand, media, and 3D preview powering a scroll-driven product film site."
     },
     {
         "title": "ADD RECYCLING - CORPORATE WEBSITE",
@@ -26,11 +27,12 @@
         "description": "Bilingual (EL/EN) corporate website for an electronics recycling company - e-scrap, cables, and catalytic converter services, with animated hero sections and a contact flow.",
         "liveUrl": "https://www.addrecycling.com/",
         "codeUrl": "#",
-        "featured": true
+        "featured": true,
+        "impact": "Gave a physical recycling business its first online presence - bilingual, SEO-ready, built to convert quote requests."
     },
     {
         "title": "TALOS - RESTAURANT COST MANAGEMENT",
-        "image": "./assets/images/thumbnail-recipe-mastermind.png",
+        "image": "./assets/images/thumbnail-recipe-mastermind.webp",
         "tech": [
             "REACT",
             "TYPESCRIPT",
@@ -40,11 +42,12 @@
         "description": "Desktop application that helps restaurant owners calculate food cost per dish, plan profitable menus, and manage warehouse inventory — replacing spreadsheets with an AI-powered Copilot.",
         "liveUrl": "https://talosrecipes.com/",
         "codeUrl": "https://github.com/VagTsop/recipe-mastermind",
-        "featured": true
+        "featured": true,
+        "impact": "Turns hours of spreadsheet food-costing into minutes, with live warehouse stock feeding every recipe."
     },
     {
         "title": "SAAS ADMIN DASHBOARD",
-        "image": "./assets/images/thumbnail-deployed-dashboard.png",
+        "image": "./assets/images/thumbnail-deployed-dashboard.webp",
         "tech": [
             "REACT",
             "TYPESCRIPT",
@@ -59,7 +62,7 @@
     },
     {
         "title": "AI CHAT PLATFORM",
-        "image": "./assets/images/thumbnail-ai-chat-platform.png",
+        "image": "./assets/images/thumbnail-ai-chat-platform.webp",
         "tech": [
             "REACT",
             "TYPESCRIPT",
@@ -92,7 +95,7 @@
     },
     {
         "title": "TASKFLOW - MOBILE PRODUCTIVITY APP",
-        "image": "./assets/images/thumbnail-taskflow-mobile.png",
+        "image": "./assets/images/thumbnail-taskflow-mobile.webp",
         "tech": [
             "REACT NATIVE",
             "EXPO",

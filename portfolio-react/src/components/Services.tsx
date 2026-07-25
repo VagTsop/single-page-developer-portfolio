@@ -80,8 +80,18 @@ export default function Services() {
             <motion.div
               key={s.title}
               variants={scaleIn}
-              className="group h-72 cursor-pointer [perspective:1200px]"
+              role="button"
+              tabIndex={0}
+              aria-pressed={isFlipped}
+              aria-label={`${s.title} — flip for details`}
+              className="group h-72 cursor-pointer rounded-2xl [perspective:1200px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-bright"
               onClick={() => setFlipped(isFlipped ? null : i)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setFlipped(isFlipped ? null : i)
+                }
+              }}
               onMouseLeave={() => setFlipped((f) => (f === i ? null : f))}
             >
               <div

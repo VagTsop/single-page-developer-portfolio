@@ -10,7 +10,13 @@ export default function Footer() {
           Vagelis Tsopanos
         </div>
 
-        <p className="order-3 text-sm text-fg-dim sm:order-2">© {new Date().getFullYear()}</p>
+        <div className="order-3 flex flex-col items-center gap-1 sm:order-2">
+          <p className="text-sm text-fg-dim">© {new Date().getFullYear()}</p>
+          {/* nudge toward the konami-code terminal, desktop only */}
+          <p className="hidden font-mono text-[11px] text-fg-dim/70 lg:block">
+            psst — try <kbd className="text-brand-bright">↑↑↓↓←→←→BA</kbd>
+          </p>
+        </div>
 
         <div className="order-2 flex items-center gap-2 sm:order-3">
           <a

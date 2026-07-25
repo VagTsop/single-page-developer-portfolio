@@ -81,6 +81,11 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         {p.description && (
           <p className="mt-2 line-clamp-3 text-sm text-fg-muted">{p.description}</p>
         )}
+        {p.impact && (
+          <p className="mt-2.5 border-l-2 border-brand-bright/60 pl-2.5 text-[13px] leading-relaxed text-fg italic">
+            {p.impact}
+          </p>
+        )}
         <div className="mt-4 flex flex-wrap gap-1.5 pt-1">
           {p.tech.slice(0, 4).map((t) => (
             <span

@@ -5,6 +5,8 @@ export interface Project {
   image: string
   tech: string[]
   description?: string
+  /** one-line case-study outcome, shown on featured cards */
+  impact?: string
   liveUrl: string
   codeUrl: string
   featured: boolean

@@ -13,12 +13,29 @@ const LINKS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // scrollspy: highlight the link of the section currently in the middle band
+  useEffect(() => {
+    const sections = LINKS.map((l) => document.querySelector(l.href)).filter(Boolean) as Element[]
+    if (!sections.length) return
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) setActive('#' + e.target.id)
+        }
+      },
+      { rootMargin: '-35% 0px -55% 0px' },
+    )
+    sections.forEach((s) => io.observe(s))
+    return () => io.disconnect()
   }, [])
 
   return (
@@ -49,7 +66,10 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="relative text-sm text-fg-muted transition-colors hover:text-fg after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-brand-bright after:transition-all hover:after:w-full"
+                aria-current={active === l.href ? 'true' : undefined}
+                className={`relative text-sm transition-colors hover:text-fg after:absolute after:-bottom-1.5 after:left-0 after:h-px after:bg-brand-bright after:transition-all hover:after:w-full ${
+                  active === l.href ? 'text-fg after:w-full' : 'text-fg-muted after:w-0'
+                }`}
               >
                 {l.label}
               </a>

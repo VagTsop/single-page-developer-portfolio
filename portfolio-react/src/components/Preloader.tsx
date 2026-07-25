@@ -20,6 +20,7 @@ export default function Preloader() {
   const logoRef = useRef<SVGSVGElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
   const startedRef = useRef(false)
+  const doneRef = useRef(false)
 
   useEffect(() => {
     document.body.classList.add('preloading')
@@ -27,6 +28,8 @@ export default function Preloader() {
     let timer: number
 
     const complete = () => {
+      if (doneRef.current) return
+      doneRef.current = true
       document.body.classList.remove('preloading')
       ;(window as Window & { __preloaderDone?: boolean }).__preloaderDone = true
       window.dispatchEvent(new Event('preloader:done'))
@@ -71,13 +74,18 @@ export default function Preloader() {
     if (document.readyState === 'complete') finish()
     else window.addEventListener('load', finish, { once: true })
 
-    // hard fallback: never trap the visitor on the loader
+    // hard fallbacks: never trap the visitor behind the loader.
+    // 1) nothing started yet (load event never fired) -> run the handoff
+    // 2) handoff started but its timeline never finished (e.g. the tab was
+    //    backgrounded, freezing the rAF ticker) -> complete outright
     const failsafe = window.setTimeout(handoff, 6000)
+    const hardStop = window.setTimeout(complete, 9000)
 
     return () => {
       window.removeEventListener('load', finish)
       clearTimeout(timer)
       clearTimeout(failsafe)
+      clearTimeout(hardStop)
       document.body.classList.remove('preloading')
     }
   }, [])

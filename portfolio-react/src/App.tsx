@@ -1,5 +1,8 @@
 import Preloader from './components/Preloader'
 import WorkSpotlight from './components/WorkSpotlight'
+import SkillsMarquee from './components/SkillsMarquee'
+import ScrollTop from './components/ScrollTop'
+import EasterEgg from './components/EasterEgg'
 import AnimatedBackground from './components/AnimatedBackground'
 import NodesBackground from './components/NodesBackground'
 import ScrollProgress from './components/ScrollProgress'
@@ -31,14 +34,19 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <SkillsMarquee />
         <Services />
         <WorkSpotlight />
         <Projects />
+        {/* Testimonials: ready in components/Testimonials.tsx — import and
+            mount here once the placeholder quotes are replaced with real ones */}
         <Contact />
       </main>
       <div className="relative z-10">
         <Footer />
       </div>
+      <ScrollTop />
+      <EasterEgg />
       <CookieConsent />
     </>
   )

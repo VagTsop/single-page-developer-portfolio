@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { staggeredBlur } from '../lib/motion'
@@ -58,13 +58,39 @@ export default function Hero() {
     }
   }, [])
 
+  // parallax scrub: leaving the hero, the backdrop lags behind while the
+  // content drifts up slightly faster and dissolves — adds depth on the
+  // very first scroll
+  const sectionRef = useRef<HTMLElement>(null)
+  const backdropRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (reduce) return
+    let ctx: { revert: () => void } | undefined
+    Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ gsap }, { ScrollTrigger }]) => {
+      gsap.registerPlugin(ScrollTrigger)
+      ctx = gsap.context(() => {
+        const st = {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        }
+        gsap.to(backdropRef.current, { yPercent: 22, ease: 'none', scrollTrigger: st })
+        gsap.to(contentRef.current, { yPercent: -10, opacity: 0.1, scale: 0.97, ease: 'none', scrollTrigger: st })
+      }, sectionRef)
+    })
+    return () => ctx?.revert()
+  }, [reduce])
+
   return (
     <section
+      ref={sectionRef}
       id="top"
       className="relative flex min-h-svh flex-col justify-center overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-20"
     >
       {/* full-bleed ambient video backdrop, Satori-style */}
-      <div className="absolute inset-0" aria-hidden>
+      <div ref={backdropRef} className="absolute inset-0" aria-hidden>
         {showVideo && (
           <motion.video
             src={videoSrc}
@@ -97,8 +123,12 @@ export default function Hero() {
       />
 
       <motion.div
-        initial="hidden"
-        animate={entered ? 'show' : 'hidden'}
+        ref={contentRef}
+        // reduced motion: skip the choreography entirely — content is
+        // rendered directly in its final state
+        initial={reduce ? false : 'hidden'}
+        animate={entered || reduce ? 'show' : 'hidden'}
+        transition={reduce ? { duration: 0 } : undefined}
         className="relative z-10 mx-auto max-w-4xl px-6 text-center"
       >
         {/* avatar with rotating halo + orbiting tech logos */}
