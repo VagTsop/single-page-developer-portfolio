@@ -83,6 +83,46 @@ export default function Hero() {
     return () => ctx?.revert()
   }, [reduce])
 
+  // mouse parallax: the backdrop drifts toward the cursor while the content
+  // drifts away from it — cheap depth using the layers already on screen.
+  // Uses x/y (px); the scroll scrub above uses yPercent, so they don't clash.
+  useEffect(() => {
+    if (reduce) return
+    if (!window.matchMedia('(hover: hover) and (min-width: 1024px)').matches) return
+
+    let dispose: (() => void) | undefined
+    let cancelled = false
+
+    import('gsap').then(({ gsap }) => {
+      if (cancelled) return
+      const opts = { duration: 0.9, ease: 'power3.out' } as const
+      const bgX = gsap.quickTo(backdropRef.current, 'x', opts)
+      const bgY = gsap.quickTo(backdropRef.current, 'y', opts)
+      const fgX = gsap.quickTo(contentRef.current, 'x', opts)
+      const fgY = gsap.quickTo(contentRef.current, 'y', opts)
+
+      const onMove = (e: MouseEvent) => {
+        const nx = e.clientX / window.innerWidth - 0.5
+        const ny = e.clientY / window.innerHeight - 0.5
+        bgX(nx * 26)
+        bgY(ny * 18)
+        fgX(nx * -12)
+        fgY(ny * -8)
+      }
+
+      window.addEventListener('mousemove', onMove, { passive: true })
+      dispose = () => {
+        window.removeEventListener('mousemove', onMove)
+        gsap.set([backdropRef.current, contentRef.current], { x: 0, y: 0 })
+      }
+    })
+
+    return () => {
+      cancelled = true
+      dispose?.()
+    }
+  }, [reduce])
+
   return (
     <section
       ref={sectionRef}

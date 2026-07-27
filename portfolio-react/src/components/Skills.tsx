@@ -56,7 +56,12 @@ function SkillCard({ name, years, Logo, inView, index }: Skill & { inView: boole
   return (
     <motion.li
       variants={fadeUp}
-      className="group rounded-2xl border border-border bg-card/40 p-5 transition-colors hover:border-brand/40 hover:bg-card"
+      onMouseMove={(e) => {
+        const r = e.currentTarget.getBoundingClientRect()
+        e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`)
+        e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`)
+      }}
+      className="spotlight group relative rounded-2xl border border-border bg-card/40 p-5 transition-colors hover:border-brand/40 hover:bg-card"
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">

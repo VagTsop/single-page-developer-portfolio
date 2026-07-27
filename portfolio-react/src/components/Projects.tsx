@@ -17,8 +17,12 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
   const sry = useSpring(ry, { stiffness: 150, damping: 15, mass: 0.4 })
 
   function onMove(e: React.MouseEvent<HTMLElement>) {
+    const el = e.currentTarget
+    const r = el.getBoundingClientRect()
+    // cursor spotlight follows the pointer even when tilt is disabled
+    el.style.setProperty('--mx', `${e.clientX - r.left}px`)
+    el.style.setProperty('--my', `${e.clientY - r.top}px`)
     if (reduce) return
-    const r = e.currentTarget.getBoundingClientRect()
     const cx = (e.clientX - r.left) / r.width - 0.5
     const cy = (e.clientY - r.top) / r.height - 0.5
     ry.set(cx * 9)
@@ -39,7 +43,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
       transition={{ duration: 0.5, ease: EASE, delay: (index % PAGE_SIZE) * 0.06 }}
       whileHover={{ y: -6 }}
       style={{ rotateX: srx, rotateY: sry, transformPerspective: 900 }}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card/40 transition-colors hover:border-brand/40"
+      className="spotlight group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card/40 transition-colors hover:border-brand/40"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-bg-soft">
         <img

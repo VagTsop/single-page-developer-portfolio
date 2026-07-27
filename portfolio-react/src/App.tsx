@@ -45,6 +45,9 @@ export default function App() {
       <div className="relative z-10">
         <Footer />
       </div>
+      {/* filmic texture over the whole page (never blocks pointer events) */}
+      <div className="vignette" aria-hidden />
+      <div className="grain" aria-hidden />
       <ScrollTop />
       <EasterEgg />
       <CookieConsent />
