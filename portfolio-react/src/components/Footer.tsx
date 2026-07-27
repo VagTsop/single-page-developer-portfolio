@@ -6,7 +6,13 @@ export default function Footer() {
     <footer className="relative border-t border-border-soft">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row">
         <div className="flex items-center gap-2 font-display font-bold text-fg">
-          <img src="/assets/images/favicon.svg" alt="" className="h-8 w-8 rounded-lg ring-1 ring-white/10" />
+          <img
+            src="/assets/images/favicon.svg"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-lg ring-1 ring-white/10"
+          />
           Vagelis Tsopanos
         </div>
 

@@ -1,0 +1,21 @@
+# Vagelis Tsopanos
+
+> Front-end developer based in Greece, building SaaS dashboards, business tools, and data-driven interfaces with Angular, React, and TypeScript.
+
+## About
+
+Vagelis Tsopanos is a front-end developer specializing in dashboards, admin panels, and business applications. Core stack: HTML, CSS, JavaScript, TypeScript, Angular, React, React Native, Tailwind CSS, Node.js, Electron, Sass. Focused on accessible, data-heavy interfaces for SaaS products.
+
+## Links
+
+- Website: https://vagtsop.dev/
+- GitHub: https://github.com/VagTsop
+- LinkedIn: https://www.linkedin.com/in/tsopanosv
+
+## Featured work
+
+- Talos — Recipe & Cost Management: https://talosrecipes.com/ (SaaS business application, Windows/macOS)
+
+## Contact
+
+Available for front-end development work — SaaS dashboards, business tools, and data visualization projects. Contact via the form at https://vagtsop.dev/#contact or through LinkedIn.

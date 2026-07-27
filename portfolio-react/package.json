@@ -9,8 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "sync-projects": "node scripts/sync-projects.mjs",
+    "prerender": "node scripts/prerender.mjs",
     "predev": "npm run sync-projects",
-    "prebuild": "npm run sync-projects"
+    "prebuild": "npm run sync-projects",
+    "postbuild": "npm run prerender"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -31,6 +33,8 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
+    "puppeteer": "^25.3.0",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",

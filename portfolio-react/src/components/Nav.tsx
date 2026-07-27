@@ -55,6 +55,8 @@ export default function Nav() {
             id="nav-brand-logo"
             src="/assets/images/favicon.svg"
             alt=""
+            width={32}
+            height={32}
             className="h-8 w-8 rounded-lg ring-1 ring-white/10 transition-transform group-hover:scale-105"
           />
           VagTsop
