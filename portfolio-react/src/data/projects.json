@@ -16,6 +16,22 @@
         "impact": "Concept to production in two days: AI-generated brand, media, and 3D preview powering a scroll-driven product film site."
     },
     {
+        "title": "CAFFÈ ANDANTE - BILINGUAL CAFÉ LANDING PAGE",
+        "image": "./assets/images/thumbnail-caffe-andante.webp",
+        "tech": [
+            "VITE",
+            "JAVASCRIPT",
+            "GSAP",
+            "SCROLLTRIGGER",
+            "LENIS"
+        ],
+        "description": "Bilingual (EN/EL) one-page site for a neighbourhood café — tabbed menu, gallery lightbox, weekly programme, booking form, and an opening-status badge that reads live Athens time and handles hours running past midnight.",
+        "liveUrl": "https://vagtsop.github.io/coffee-site/",
+        "codeUrl": "https://github.com/VagTsop/coffee-site",
+        "featured": true,
+        "impact": "A pitch-ready template for local businesses with no website: every fact, price and photo swaps out in one pass."
+    },
+    {
         "title": "ADD RECYCLING - CORPORATE WEBSITE",
         "image": "./assets/images/thumbnail-add-recycling.webp",
         "tech": [
