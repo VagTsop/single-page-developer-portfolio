@@ -52,7 +52,18 @@ const SKILLS: Skill[] = [
   { name: 'Accessibility', years: 6, Logo: tinted(Accessibility, '#818cf8') },
 ]
 
-function SkillCard({ name, years, Logo, inView, index }: Skill & { inView: boolean; index: number }) {
+function SkillCard({
+  name,
+  years,
+  Logo,
+  inView,
+  index,
+  maxYears,
+}: Skill & { inView: boolean; index: number; maxYears: number }) {
+  // The bar encodes the same number as the label: years of use, relative to the
+  // longest-running skill. It is not a self-assessed proficiency score.
+  const fill = Math.max(0.16, years / maxYears)
+
   return (
     <motion.li
       variants={fadeUp}
@@ -70,22 +81,25 @@ function SkillCard({ name, years, Logo, inView, index }: Skill & { inView: boole
           </span>
           <span className="font-display font-medium text-fg">{name}</span>
         </div>
-        <span className="font-mono text-xs text-fg-dim">{years}y</span>
+        <span className="font-mono text-xs text-fg-dim">
+          {years} {years === 1 ? 'yr' : 'yrs'}
+        </span>
       </div>
 
-      <div className="mt-4 flex items-center gap-3">
-        <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-border-soft">
+      <div className="mt-4">
+        <div
+          className="h-1.5 overflow-hidden rounded-full bg-border-soft"
+          role="img"
+          aria-label={`${years} ${years === 1 ? 'year' : 'years'} using ${name}`}
+        >
           <motion.div
             initial={{ scaleX: 0 }}
-            animate={{ scaleX: inView ? 0.92 : 0 }}
+            animate={{ scaleX: inView ? fill : 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.1 + (index % 3) * 0.06 }}
             style={{ transformOrigin: 'left' }}
             className="h-full w-full rounded-full bg-gradient-to-r from-brand to-cyan"
           />
         </div>
-        <span className="w-16 shrink-0 text-right font-mono text-[10px] uppercase tracking-wider text-brand-bright">
-          Expert
-        </span>
       </div>
     </motion.li>
   )
@@ -94,6 +108,7 @@ function SkillCard({ name, years, Logo, inView, index }: Skill & { inView: boole
 export default function Skills() {
   const ref = useRef<HTMLUListElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+  const maxYears = Math.max(...SKILLS.map((s) => s.years))
 
   return (
     <section id="skills" className="relative mx-auto max-w-6xl scroll-mt-24 px-6 py-24">
@@ -108,7 +123,7 @@ export default function Skills() {
         className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3"
       >
         {SKILLS.map((s, i) => (
-          <SkillCard key={s.name} {...s} inView={inView} index={i} />
+          <SkillCard key={s.name} {...s} inView={inView} index={i} maxYears={maxYears} />
         ))}
       </motion.ul>
     </section>

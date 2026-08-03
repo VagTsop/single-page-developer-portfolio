@@ -40,10 +40,11 @@
       "EXPRESS",
       "SQLITE"
     ],
-    "description": "Admin dashboard for SaaS platforms with role-based access control, real-time notifications, task management via Kanban board, and PDF report generation.",
+    "description": "Admin console for multi-tenant SaaS teams: role-based access decides what each operator can see and do, work moves across a Kanban board, and reports leave as PDFs — with notifications pushed live rather than polled.",
     "liveUrl": "https://saas-admin-dashboard-omega.vercel.app",
     "codeUrl": "https://github.com/VagTsop/saas-admin-dashboard",
-    "featured": true
+    "featured": true,
+    "impact": "Built around the three things usually bolted onto an admin panel too late: permissions, real-time updates and reporting."
   },
   {
     "title": "AI CHAT PLATFORM",
@@ -57,10 +58,11 @@
       "SQLITE",
       "SSE"
     ],
-    "description": "AI-powered customer support platform with multiple specialist personas, real-time streaming responses, conversation history, and admin analytics dashboard.",
+    "description": "Customer-support console backed by an LLM: specialist personas each answer in their own domain, replies stream token by token, and conversations stay searchable for whoever picks the thread up next.",
     "liveUrl": "https://ai-chat-platform-alpha.vercel.app",
     "codeUrl": "https://github.com/VagTsop/ai-chat-platform",
-    "featured": true
+    "featured": true,
+    "impact": "Covers the parts that make an LLM feature shippable — streaming, persona routing, history and usage analytics — rather than a prompt box."
   },
   {
     "title": "ADD RECYCLING - CORPORATE WEBSITE",
@@ -88,10 +90,11 @@
       "EXPRESS",
       "SQLITE"
     ],
-    "description": "Complete e-commerce solution with product catalog, checkout flow, order management, admin dashboard for inventory control, customer reviews, and coupon system.",
+    "description": "Storefront and back office in one product: customers browse, review and check out, while the shop owner runs catalogue, stock, orders and coupons from the same admin.",
     "liveUrl": "https://ecommerce-platform-livid.vercel.app",
     "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
-    "featured": true
+    "featured": true,
+    "impact": "The operator half of e-commerce that most demos skip: inventory, order state and discounting."
   },
   {
     "title": "TASKFLOW - MOBILE PRODUCTIVITY APP",
@@ -104,10 +107,11 @@
       "EXPRESS",
       "SQLITE"
     ],
-    "description": "Mobile productivity app for teams — Kanban boards, calendar scheduling, project tracking, and performance dashboard. Built for iOS and Android.",
+    "description": "Team productivity app shipping to iOS and Android from a single React Native codebase — Kanban boards, calendar scheduling and a performance view that surfaces where projects are actually stalling.",
     "liveUrl": "https://taskflow-mobile.vercel.app",
     "codeUrl": "https://github.com/VagTsop/taskflow-mobile",
-    "featured": true
+    "featured": true,
+    "impact": "One codebase, two platforms: the same product patterns as the web dashboards, delivered natively."
   },
   {
     "title": "WEATHER NOW - ANGULAR PWA",
@@ -115,10 +119,11 @@
     "tech": [
       "ANGULAR"
     ],
-    "description": "Real-time weather dashboard PWA with geolocation, forecast data, and offline support — installable on any device.",
+    "description": "Angular PWA built to answer one question fast: geolocated conditions and forecast, installable to the home screen and still readable with no connection.",
     "liveUrl": "https://vagtsop.github.io/weather-app/",
     "codeUrl": "https://github.com/VagTsop/weather-app",
-    "featured": true
+    "featured": true,
+    "impact": "A deliberately small surface used to get the PWA fundamentals right — install flow, offline cache and cold-start speed."
   },
   {
     "title": "TACET - SCROLL-DRIVEN PRODUCT LANDING PAGE",
