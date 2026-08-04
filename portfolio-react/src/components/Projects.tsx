@@ -1,13 +1,21 @@
 import { useMemo, useState } from 'react'
 import { motion, useMotionValue, useSpring, useReducedMotion } from 'framer-motion'
-import { ArrowUpRight, Star } from 'lucide-react'
+import { ArrowUpRight, Star, BadgeCheck } from 'lucide-react'
 import { GithubIcon } from './icons'
 import { projects, type Project } from '../lib/projects'
 import SectionHeading from './SectionHeading'
 
 const PAGE_SIZE = 6
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
-type Filter = 'featured' | 'all'
+
+type Filter = 'featured' | 'client' | 'lab' | 'all'
+
+const FILTERS: { id: Filter; label: string; match: (p: Project) => boolean }[] = [
+  { id: 'featured', label: 'Featured', match: (p) => p.featured },
+  { id: 'client', label: 'Client work', match: (p) => p.category === 'client' },
+  { id: 'lab', label: 'Lab', match: (p) => p.category === 'lab' },
+  { id: 'all', label: 'All', match: () => true },
+]
 
 function ProjectCard({ p, index }: { p: Project; index: number }) {
   const reduce = useReducedMotion()
@@ -56,6 +64,13 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         {p.featured && (
           <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-white backdrop-blur">
             <Star size={11} className="fill-white" /> Featured
+          </span>
+        )}
+        {/* το σήμα μένει ορατό σε κάθε φίλτρο — αυτό είναι το ζητούμενο, να
+            ξεχωρίζει με μια ματιά τι είναι πραγματική δουλειά για πελάτη */}
+        {p.category === 'client' && (
+          <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-live/90 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-bg backdrop-blur">
+            <BadgeCheck size={11} /> Client work
           </span>
         )}
         {/* hover action overlay */}
@@ -114,11 +129,16 @@ export default function Projects() {
   const [filter, setFilter] = useState<Filter>('featured')
   const [visible, setVisible] = useState(PAGE_SIZE)
 
-  const list = useMemo(
-    () => (filter === 'featured' ? projects.filter((p) => p.featured) : projects),
-    [filter],
-  )
+  const list = useMemo(() => {
+    const match = FILTERS.find((f) => f.id === filter)?.match ?? (() => true)
+    return projects.filter(match)
+  }, [filter])
   const shown = list.slice(0, visible)
+
+  const counts = useMemo(
+    () => Object.fromEntries(FILTERS.map((f) => [f.id, projects.filter(f.match).length])),
+    [],
+  )
 
   const changeFilter = (f: Filter) => {
     setFilter(f)
@@ -130,24 +150,25 @@ export default function Projects() {
       <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading eyebrow="Selected work" title="Things I've" highlight="shipped" className="mb-0" />
 
-        <div className="inline-flex rounded-xl border border-border bg-card/40 p-1">
-          {(['featured', 'all'] as Filter[]).map((f) => (
+        {/* flex-wrap: τέσσερα φίλτρα δεν χωρούν σε μία σειρά στα 375px */}
+        <div className="flex flex-wrap gap-1 rounded-xl border border-border bg-card/40 p-1">
+          {FILTERS.map(({ id, label }) => (
             <button
-              key={f}
-              onClick={() => changeFilter(f)}
-              className={`relative rounded-lg px-4 py-2 text-sm font-medium capitalize transition-colors ${
-                filter === f ? 'text-white' : 'text-fg-muted hover:text-fg'
+              key={id}
+              onClick={() => changeFilter(id)}
+              className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors sm:px-4 ${
+                filter === id ? 'text-white' : 'text-fg-muted hover:text-fg'
               }`}
             >
-              {filter === f && (
+              {filter === id && (
                 <motion.span
                   layoutId="filter-pill"
                   className="absolute inset-0 rounded-lg bg-brand"
                   transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                 />
               )}
-              <span className="relative z-10">
-                {f} {f === 'all' && <span className="opacity-70">({projects.length})</span>}
+              <span className="relative z-10 whitespace-nowrap">
+                {label} <span className="opacity-70">({counts[id]})</span>
               </span>
             </button>
           ))}

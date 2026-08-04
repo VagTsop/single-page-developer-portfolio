@@ -1,5 +1,8 @@
 import rawProjects from '../data/projects.json'
 
+/** 'client' = paid work shipped for a real business; everything else is self-initiated */
+export type ProjectCategory = 'client' | 'lab'
+
 export interface Project {
   title: string
   image: string
@@ -10,15 +13,23 @@ export interface Project {
   liveUrl: string
   codeUrl: string
   featured: boolean
+  category: ProjectCategory
+}
+
+type RawProject = Omit<Project, 'featured' | 'category'> & {
+  featured?: boolean
+  category?: string
 }
 
 /** Normalize the legacy "./assets/..." paths to public-root "/assets/..." */
-export const projects: Project[] = (rawProjects as Array<Omit<Project, 'featured'> & { featured?: boolean }>).map(
-  (p) => ({
-    ...p,
-    image: p.image.replace(/^\.\//, '/'),
-    featured: Boolean(p.featured),
-  }),
-)
+export const projects: Project[] = (rawProjects as RawProject[]).map((p) => ({
+  ...p,
+  image: p.image.replace(/^\.\//, '/'),
+  featured: Boolean(p.featured),
+  // ό,τι δεν είναι ρητά πελατειακό μετράει ως lab — έτσι μια νέα καταχώριση δεν
+  // μπορεί να παρουσιαστεί κατά λάθος ως δουλειά για πελάτη
+  category: p.category === 'client' ? 'client' : 'lab',
+}))
 
 export const featuredProjects = projects.filter((p) => p.featured)
+export const clientProjects = projects.filter((p) => p.category === 'client')
