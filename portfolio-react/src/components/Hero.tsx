@@ -37,6 +37,16 @@ export default function Hero() {
     window.addEventListener('preloader:done', onDone, { once: true })
     return () => window.removeEventListener('preloader:done', onDone)
   }, [])
+  // Two 28rem blobs behind `filter: blur(90px)`, animated forever, are the
+  // single most expensive thing in this section. Desktop absorbs it; on a phone
+  // it repaints the whole stacking context on every frame of every scroll.
+  const isSmall = useMemo(
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(max-width: 767px)').matches,
+    [],
+  )
+
   // phones get a 3x lighter encode of the same loop (1.3MB vs 4.2MB)
   const videoSrc = useMemo(
     () =>
@@ -69,6 +79,12 @@ export default function Hero() {
     let ctx: { revert: () => void } | undefined
     Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(([{ gsap }, { ScrollTrigger }]) => {
       gsap.registerPlugin(ScrollTrigger)
+
+      // On phones the URL bar collapses as you scroll, which changes the
+      // viewport height and makes ScrollTrigger recalculate start/end mid-
+      // gesture — the scrubbed values jump and the whole section stutters.
+      ScrollTrigger.config({ ignoreMobileResize: true })
+
       ctx = gsap.context(() => {
         const st = {
           trigger: sectionRef.current,
@@ -76,8 +92,35 @@ export default function Hero() {
           end: 'bottom top',
           scrub: true,
         }
+
+        // The backdrop is a single promoted layer, so moving it is cheap
+        // everywhere.
         gsap.to(backdropRef.current, { yPercent: 22, ease: 'none', scrollTrigger: st })
-        gsap.to(contentRef.current, { yPercent: -10, opacity: 0.1, scale: 0.97, ease: 'none', scrollTrigger: st })
+
+        // The content is not: it holds ~25 separate inline-block spans, two of
+        // them with `background-clip: text`. Scaling that subtree forces every
+        // glyph to be re-rasterised at a fractional scale on each scroll frame,
+        // which reads as shimmering text on mobile GPUs. Desktop has the
+        // headroom; phones do not, so they get the fade without the transform.
+        const mm = gsap.matchMedia()
+
+        mm.add('(min-width: 768px)', () => {
+          gsap.to(contentRef.current, {
+            yPercent: -10,
+            opacity: 0.1,
+            scale: 0.97,
+            ease: 'none',
+            scrollTrigger: st,
+          })
+        })
+
+        mm.add('(max-width: 767px)', () => {
+          gsap.to(contentRef.current, {
+            opacity: 0.15,
+            ease: 'none',
+            scrollTrigger: st,
+          })
+        })
       }, sectionRef)
     })
     return () => ctx?.revert()
@@ -129,8 +172,11 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-svh flex-col justify-center overflow-hidden pt-32 pb-16 sm:pt-36 sm:pb-20"
     >
-      {/* full-bleed ambient video backdrop, Satori-style */}
-      <div ref={backdropRef} className="absolute inset-0" aria-hidden>
+      {/* full-bleed ambient video backdrop, Satori-style.
+          `will-change-transform` keeps it on its own compositor layer, so the
+          scroll scrub moves an existing texture instead of repainting the
+          video and its gradient on every frame. */}
+      <div ref={backdropRef} className="absolute inset-0 will-change-transform" aria-hidden>
         {showVideo && (
           <motion.video
             src={videoSrc}
@@ -151,13 +197,13 @@ export default function Hero() {
       <div className="grid-backdrop absolute inset-0" aria-hidden />
       <motion.div
         className="glow-blob -top-24 left-1/4 h-[28rem] w-[28rem] bg-brand/40"
-        animate={reduce ? undefined : { x: [0, 70, -30, 0], y: [0, 50, 25, 0], scale: [1, 1.18, 0.95, 1] }}
+        animate={reduce || isSmall ? undefined : { x: [0, 70, -30, 0], y: [0, 50, 25, 0], scale: [1, 1.18, 0.95, 1] }}
         transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden
       />
       <motion.div
         className="glow-blob top-10 right-1/4 h-[24rem] w-[24rem] bg-cyan/30"
-        animate={reduce ? undefined : { x: [0, -60, 20, 0], y: [0, 40, -20, 0], scale: [1.05, 0.9, 1.2, 1.05] }}
+        animate={reduce || isSmall ? undefined : { x: [0, -60, 20, 0], y: [0, 40, -20, 0], scale: [1.05, 0.9, 1.2, 1.05] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
         aria-hidden
       />

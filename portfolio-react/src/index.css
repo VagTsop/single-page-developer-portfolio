@@ -114,7 +114,11 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
-  @media (prefers-reduced-motion: no-preference) {
+  /* The sweep animates `background-position` on text that is painted through
+     `background-clip: text`. On a phone that clip is re-composited every frame,
+     and while the hero is also fading on scroll the two together make the
+     letters shimmer. Desktop keeps the effect; phones keep the gradient. */
+  @media (prefers-reduced-motion: no-preference) and (min-width: 768px) {
     .text-shimmer {
       animation: shimmer-sweep 8s linear infinite;
     }
@@ -144,6 +148,16 @@
     opacity: 0.5;
     pointer-events: none;
     z-index: 0;
+  }
+
+  /* A 90px blur is a full-screen convolution on every repaint. Phones get a
+     smaller radius and a fixed position, which keeps the same soft wash for a
+     fraction of the cost. */
+  @media (max-width: 767px) {
+    .glow-blob {
+      filter: blur(56px);
+      opacity: 0.38;
+    }
   }
 
   /* ---- animated ambient background (global) ---- */
