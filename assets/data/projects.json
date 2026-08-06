@@ -177,13 +177,19 @@
   },
   {
     "title": "MILLENIA BANK WEB APPLICATION",
-    "image": "./assets/images/thumbnail-project-2-large.webp",
+    "image": "./assets/images/thumbnail-millenia-bank.webp",
     "tech": [
-      "ANGULAR",
-      "SCSS"
+      "ANGULAR 20",
+      "SIGNALS",
+      "ZONELESS",
+      "TAILWIND V4",
+      "TYPESCRIPT"
     ],
+    "description": "Digital banking app on Angular 20 — standalone components, zoneless change detection and a signal store built on httpResource + linkedSignal. Dashboard, accounts, cards, a three-step transfer wizard with real IBAN MOD-97 validation, and a searchable statement with CSV export. Light/dark and EN/EL, both persisted.",
     "liveUrl": "https://vagtsop.github.io/product-app/",
-    "codeUrl": "https://github.com/VagTsop/product-app"
+    "codeUrl": "https://github.com/VagTsop/product-app",
+    "featured": true,
+    "impact": "Full rewrite of a 2022 Angular 14 build: no UI library, charts drawn from scratch in SVG, 84 kB gzipped initial bundle."
   },
   {
     "title": "BROWSER EXTENSION MANAGER UI",
