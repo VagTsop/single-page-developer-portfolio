@@ -10,7 +10,7 @@ export const staggerContainer: Variants = {
   },
 };
 
-/** // Fade + rise + blur-in ("materializing", Jakub). Spring with no bounce = polished. */
+/**  Fade + rise + blur-in ("materializing", Jakub). Spring with no bounce = polished. */
 export const fadeUp: Variants = {
   hidden: { opacity: 0, y: 22, filter: "blur(6px)" },
   show: {
