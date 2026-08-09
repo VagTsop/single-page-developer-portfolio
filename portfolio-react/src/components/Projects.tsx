@@ -83,29 +83,35 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           >
             Live <ArrowUpRight size={15} />
           </a>
-          <a
-            href={p.codeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${p.title} source code`}
-            className="grid h-9 w-10 place-items-center rounded-lg bg-bg-soft/90 text-fg ring-1 ring-border backdrop-blur transition-colors hover:text-brand-bright"
-          >
-            <GithubIcon size={17} />
-          </a>
+          {/* Client work keeps its source private, so there is nothing to link
+              to — better no button than one that lands on a 404. */}
+          {p.codeUrl && (
+            <a
+              href={p.codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${p.title} source code`}
+              className="grid h-9 w-10 place-items-center rounded-lg bg-bg-soft/90 text-fg ring-1 ring-border backdrop-blur transition-colors hover:text-brand-bright"
+            >
+              <GithubIcon size={17} />
+            </a>
+          )}
         </div>
       </div>
 
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-base font-semibold leading-snug">{p.title}</h3>
         {p.description && (
-          <p className="mt-2 line-clamp-3 text-sm text-fg-muted">{p.description}</p>
+          <p className="mt-2 text-sm text-fg-muted">{p.description}</p>
         )}
         {p.impact && (
           <p className="mt-2.5 border-l-2 border-brand-bright/60 pl-2.5 text-[13px] leading-relaxed text-fg italic">
             {p.impact}
           </p>
         )}
-        <div className="mt-4 flex flex-wrap gap-1.5 pt-1">
+        {/* mt-auto keeps the tech row on the baseline of the card, so cards in
+            the same grid row still line up now that descriptions run free */}
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
           {p.tech.slice(0, 4).map((t) => (
             <span
               key={t}

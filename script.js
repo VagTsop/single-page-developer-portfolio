@@ -85,7 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
     var thumb = safeUrl(project.thumb || project.image);
     var image = safeUrl(project.image);
     var liveUrl = safeUrl(project.liveUrl);
-    var codeUrl = safeUrl(project.codeUrl);
+    // Client work keeps its repo private. A missing or placeholder codeUrl means
+    // "no public source", so the button is dropped rather than sent to a 404.
+    var rawCode = project.codeUrl;
+    var codeUrl = rawCode && rawCode !== "#" ? safeUrl(rawCode) : "";
     var sizes = "(max-width:736px) 90vw, 34rem";
     var featuredClass = project.featured ? " featured-project" : "";
     var featuredBadge = project.featured
@@ -117,9 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
             '<a href="' + liveUrl + '" target="_blank" rel="noopener noreferrer">' +
               '<button type="button" class="custom-btn">View project</button>' +
             '</a>' +
-            '<a href="' + codeUrl + '" target="_blank" rel="noopener noreferrer">' +
-              '<button type="button" class="custom-btn">View code</button>' +
-            '</a>' +
+            (codeUrl
+              ? '<a href="' + codeUrl + '" target="_blank" rel="noopener noreferrer">' +
+                  '<button type="button" class="custom-btn">View code</button>' +
+                '</a>'
+              : '') +
           '</div>' +
         '</div>' +
         '<h3 class="heading-M">' + title + '</h3>' +

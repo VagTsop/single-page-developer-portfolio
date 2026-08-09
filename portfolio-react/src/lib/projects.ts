@@ -11,7 +11,8 @@ export interface Project {
   /** one-line case-study outcome, shown on featured cards */
   impact?: string
   liveUrl: string
-  codeUrl: string
+  /** Omitted when the source is private — the card then hides its GitHub link. */
+  codeUrl?: string
   featured: boolean
   category: ProjectCategory
 }
@@ -25,6 +26,9 @@ type RawProject = Omit<Project, 'featured' | 'category'> & {
 export const projects: Project[] = (rawProjects as RawProject[]).map((p) => ({
   ...p,
   image: p.image.replace(/^\.\//, '/'),
+  // A "#" placeholder used to render a GitHub button that went nowhere; treat
+  // it — and any empty value — as "no public repo".
+  codeUrl: p.codeUrl && p.codeUrl !== '#' ? p.codeUrl : undefined,
   featured: Boolean(p.featured),
   // ό,τι δεν είναι ρητά πελατειακό μετράει ως lab — έτσι μια νέα καταχώριση δεν
   // μπορεί να παρουσιαστεί κατά λάθος ως δουλειά για πελάτη
