@@ -67,11 +67,11 @@
   },
   {
     "title": "ECOMMERCE PLATFORM",
-    "image": "./assets/images/thumbnail-ecommerce-platform.webp",
+    "image": "./assets/images/thumbnail-shophub.webp",
     "tech": [
-      "REACT",
-      "TYPESCRIPT",
-      "MATERIAL UI",
+      "ANGULAR 21",
+      "MATERIAL 3",
+      "GSAP",
       "NODE.JS",
       "EXPRESS",
       "SQLITE"
@@ -80,35 +80,41 @@
     "liveUrl": "https://ecommerce-platform-livid.vercel.app",
     "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
     "featured": true,
-    "impact": "The operator half of e-commerce that most demos skip: inventory, order state and discounting.",
+    "impact": "Angular front end on a real Express/SQLite API with JWT auth — the operator half of e-commerce that most demos skip.",
     "category": "lab"
   },
   {
     "title": "WEATHER NOW - ANGULAR PWA",
-    "image": "./assets/images/thumbnail-project-1-large-0.webp",
+    "image": "./assets/images/thumbnail-weather-now.webp",
     "tech": [
-      "ANGULAR"
+      "ANGULAR 21",
+      "MATERIAL 3",
+      "GSAP",
+      "PWA",
+      "OPEN-METEO"
     ],
-    "description": "Weather answered in one glance — local conditions and forecast, installable to a phone home screen like a real app, and still readable with no connection.",
+    "description": "Weather answered in one glance — live conditions and a 7-day forecast for any city, installable to a phone home screen like a real app and still readable with no connection.",
     "liveUrl": "https://vagtsop.github.io/weather-app/",
     "codeUrl": "https://github.com/VagTsop/weather-app",
     "featured": true,
-    "impact": "A deliberately small surface used to get install flow, offline cache and cold-start speed right.",
+    "impact": "The sky behind the numbers is drawn in SVG and animated with GSAP: sun, clouds, rain, snow and lightning all react to the actual forecast.",
     "category": "lab"
   },
   {
     "title": "BROWSER EXTENSION MANAGER UI",
-    "image": "./assets/images/thumbnail-project-1-large-1.webp",
+    "image": "./assets/images/thumbnail-browser-extensions.webp",
     "tech": [
-      "HTML",
-      "CSS",
-      "JAVASCRIPT"
+      "ANGULAR 21",
+      "MATERIAL 3",
+      "GSAP",
+      "TYPESCRIPT"
     ],
     "liveUrl": "https://vagtsop.github.io/browser-extensions-manager-ui/",
     "codeUrl": "https://github.com/VagTsop/browser-extensions-manager-ui",
-    "description": "A settings screen for managing browser extensions: filter by All, Active or Inactive, switch any extension on or off, and flip the whole interface between light and dark.",
-    "impact": "Plain HTML, CSS and JavaScript with no framework — every toggle, filter and transition written by hand.",
-    "category": "lab"
+    "description": "Extension manager with All / Active / Inactive filtering, search, sort, bulk actions and undoable removal — cards glide between grid positions instead of snapping when a filter changes.",
+    "impact": "A Frontend Mentor challenge rebuilt as a real app: zoneless Angular, a signal store, and GSAP Flip driving the layout transitions.",
+    "category": "lab",
+    "featured": true
   },
   {
     "title": "TACET - SCROLL-DRIVEN PRODUCT LANDING PAGE",
