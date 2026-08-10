@@ -19,16 +19,16 @@
     "image": "./assets/images/thumbnail-atlas-dashboard.webp",
     "tech": [
       "ANGULAR 20",
-      "TYPESCRIPT",
       "SIGNALS",
       "ECHARTS",
-      "SCSS"
+      "GEMINI API",
+      "TYPESCRIPT"
     ],
-    "description": "Admin dashboards get slow as the data grows. This one holds 50,000 customer accounts and two years of revenue history, and every filter and sort answers in under 15 ms — no spinners, no lag.",
+    "description": "Admin dashboards get slow as the data grows. This one holds 50,000 customer accounts and two years of revenue history, and every filter and sort answers in under 15 ms. Ask it why revenue moved and a Gemini-backed assistant replies from the numbers on screen — then switches the time window itself to show you.",
     "liveUrl": "https://vagtsop.github.io/admin-dashboard/",
     "codeUrl": "https://github.com/VagTsop/admin-dashboard",
     "featured": true,
-    "impact": "Speed you can check yourself: frame rate and filter time are shown live inside the app, not claimed in a README.",
+    "impact": "Speed you can check yourself: frame rate and filter cost are measured live in the app. The assistant is held to the same standard — it answers only from the data on screen and says so when a figure is not there.",
     "category": "lab"
   },
   {
