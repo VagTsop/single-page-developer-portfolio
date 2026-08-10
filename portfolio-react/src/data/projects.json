@@ -77,7 +77,7 @@
       "SQLITE"
     ],
     "description": "A shop and its back office in one build: customers browse, review and check out, while the owner runs catalogue, stock, orders and discount codes from the same admin.",
-    "liveUrl": "https://ecommerce-platform-livid.vercel.app",
+    "liveUrl": "https://vagtsop.github.io/ecommerce-platform/",
     "codeUrl": "https://github.com/VagTsop/ecommerce-platform",
     "featured": true,
     "impact": "Angular front end on a real Express/SQLite API with JWT auth — the operator half of e-commerce that most demos skip.",
