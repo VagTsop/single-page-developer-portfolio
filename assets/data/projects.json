@@ -22,13 +22,14 @@
       "SIGNALS",
       "ECHARTS",
       "GEMINI API",
+      "FUNCTION CALLING",
       "TYPESCRIPT"
     ],
-    "description": "Admin dashboards get slow as the data grows. This one holds 50,000 customer accounts and two years of revenue history, and every filter and sort answers in under 15 ms. Ask it why revenue moved and a Gemini-backed assistant replies from the numbers on screen — then switches the time window itself to show you.",
+    "description": "Admin dashboards get slow as the data grows. This one holds 50,000 customer accounts and two years of revenue history, and every filter and sort answers in under 15 ms. Ask it why revenue moved — typed or spoken — and a Gemini-backed assistant answers from the numbers on screen, then works the dashboard for you: changes the window, filters the table to the accounts it just named, exports the view.",
     "liveUrl": "https://vagtsop.github.io/admin-dashboard/",
     "codeUrl": "https://github.com/VagTsop/admin-dashboard",
     "featured": true,
-    "impact": "Speed you can check yourself: frame rate and filter cost are measured live in the app. The assistant is held to the same standard — it answers only from the data on screen and says so when a figure is not there.",
+    "impact": "Speed you can check yourself: frame rate and filter cost are measured live in the app. The assistant is held to the same standard — it answers only from the data on screen, quotes each figure exactly as the tile beside it does, and keeps working when the model is unreachable.",
     "category": "lab"
   },
   {
